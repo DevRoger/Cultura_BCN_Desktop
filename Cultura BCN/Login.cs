@@ -10,22 +10,17 @@ using System.Windows.Forms;
 
 namespace Cultura_BCN
 {
-    public partial class Form1 : Form
+    public partial class Login : Form
     {
-        public Form1()
+        public Login()
         {
             InitializeComponent();
         }
 
-        private void Form1_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void buttonContinue_Click(object sender, EventArgs e)
         {
-            Login login = new Login();
-            login.Show();
+            Dashboard d = new Dashboard();
+            d.Show();
             this.Hide();
         }
     }
