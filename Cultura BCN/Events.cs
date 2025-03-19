@@ -10,21 +10,23 @@ using System.Windows.Forms;
 
 namespace Cultura_BCN
 {
-    public partial class Dashboard : Form
+    public partial class Events : Form
     {
-        public Dashboard()
+        public Events()
         {
             InitializeComponent();
         }
 
-        private void pictureBox2_Click(object sender, EventArgs e)
+        private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
 
         }
 
-        private void pictureBox5_Click(object sender, EventArgs e)
+        private void pictureBox1_Click(object sender, EventArgs e)
         {
-
+            Dashboard d = new Dashboard();
+            d.Show();
+            this.Hide();
         }
 
         private void buttonOff_Click(object sender, EventArgs e)
@@ -32,15 +34,15 @@ namespace Cultura_BCN
             this.Close();
         }
 
-        private void Dashboard_Load(object sender, EventArgs e)
+        private void textBoxEmail_TextChanged(object sender, EventArgs e)
         {
 
         }
 
-        private void buttonEvents_Click(object sender, EventArgs e)
+        private void pictureBox4_Click(object sender, EventArgs e)
         {
-            Events f = new Events();
-            f.Show();
+            CreateEvent c = new CreateEvent();
+            c.Show();
             this.Hide();
         }
     }
