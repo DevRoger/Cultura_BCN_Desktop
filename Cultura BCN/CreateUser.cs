@@ -10,16 +10,11 @@ using System.Windows.Forms;
 
 namespace Cultura_BCN
 {
-    public partial class UsersDashboard : Form
+    public partial class CreateUser : Form
     {
-        public UsersDashboard()
+        public CreateUser()
         {
             InitializeComponent();
-        }
-
-        private void Users_Load(object sender, EventArgs e)
-        {
-
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -31,8 +26,8 @@ namespace Cultura_BCN
 
         private void buttonUsaurios_Click(object sender, EventArgs e)
         {
-            UsersDashboard dashboard = new UsersDashboard();
-            dashboard.Show();
+            UsersDashboard usersDashboard = new UsersDashboard();
+            usersDashboard.Show();
             this.Hide();
         }
 
@@ -45,28 +40,21 @@ namespace Cultura_BCN
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard dashboard = new EventsDashboard();
-            dashboard.Show();
+            EventsDashboard eventsDashboard = new EventsDashboard();
+            eventsDashboard.Show();
             this.Hide();
         }
 
         private void buttonBockings_Click(object sender, EventArgs e)
         {
-            ReservationsDashboard dashboard = new ReservationsDashboard();
-            dashboard.Show();
+            ReservationsDashboard reservationsDashboard = new ReservationsDashboard();
+            reservationsDashboard.Show();
             this.Hide();
         }
 
         private void buttonOff_Click(object sender, EventArgs e)
         {
             this.Close();
-        }
-
-        private void createUsers_Click(object sender, EventArgs e)
-        {
-            CreateUser createUser = new CreateUser();
-            createUser.Show();
-            this.Hide();
         }
     }
 }

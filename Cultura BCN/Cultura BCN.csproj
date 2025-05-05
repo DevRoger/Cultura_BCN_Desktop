@@ -52,6 +52,12 @@
     <Compile Include="CreateEvent.Designer.cs">
       <DependentUpon>CreateEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateUser.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateUser.Designer.cs">
+      <DependentUpon>CreateUser.cs</DependentUpon>
+    </Compile>
     <Compile Include="Dashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -98,6 +104,9 @@
     </Compile>
     <EmbeddedResource Include="CreateEvent.resx">
       <DependentUpon>CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateUser.resx">
+      <DependentUpon>CreateUser.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
@@ -222,6 +231,8 @@
     <None Include="Resources\Frame 3 %284%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Frame 5 %281%29.png" />
+    <None Include="Resources\Frame 5.png" />
     <None Include="Resources\Frame_4_with_enum1.png" />
     <None Include="Resources\Frame_4_with_enum.png" />
     <None Include="Resources\Frame 3 %289%29.png" />

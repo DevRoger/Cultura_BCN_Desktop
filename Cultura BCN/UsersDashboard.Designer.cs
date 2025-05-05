@@ -166,6 +166,7 @@
             this.createUsers.Size = new System.Drawing.Size(51, 50);
             this.createUsers.TabIndex = 44;
             this.createUsers.TabStop = false;
+            this.createUsers.Click += new System.EventHandler(this.createUsers_Click);
             // 
             // deleteUsers
             // 
