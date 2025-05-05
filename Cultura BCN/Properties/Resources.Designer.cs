@@ -153,6 +153,56 @@ namespace Cultura_BCN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Frame_3__4_ {
+            get {
+                object obj = ResourceManager.GetObject("Frame 3 (4)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Frame_3__5_ {
+            get {
+                object obj = ResourceManager.GetObject("Frame 3 (5)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Frame_3__6_ {
+            get {
+                object obj = ResourceManager.GetObject("Frame 3 (6)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Frame_3__8_ {
+            get {
+                object obj = ResourceManager.GetObject("Frame 3 (8)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Frame_3__9_ {
+            get {
+                object obj = ResourceManager.GetObject("Frame 3 (9)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Frame_4 {
             get {
                 object obj = ResourceManager.GetObject("Frame 4", resourceCulture);
@@ -176,6 +226,26 @@ namespace Cultura_BCN.Properties {
         internal static System.Drawing.Bitmap Frame_4__2_ {
             get {
                 object obj = ResourceManager.GetObject("Frame 4 (2)", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Frame_4_not_enum {
+            get {
+                object obj = ResourceManager.GetObject("Frame 4_not_enum", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap Frame_4_with_enum {
+            get {
+                object obj = ResourceManager.GetObject("Frame_4_with_enum", resourceCulture);
                 return ((System.Drawing.Bitmap)(obj));
             }
         }

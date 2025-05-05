@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace Cultura_BCN
 {
-    public partial class Events : Form
+    public partial class EventsDashboard : Form
     {
-        public Events()
+        public EventsDashboard()
         {
             InitializeComponent();
         }
@@ -43,6 +43,34 @@ namespace Cultura_BCN
         {
             CreateEvent c = new CreateEvent();
             c.Show();
+            this.Hide();
+        }
+
+        private void buttonUsaurios_Click(object sender, EventArgs e)
+        {
+            UsersDashboard d = new UsersDashboard();
+            d.Show();
+            this.Hide();
+        }
+
+        private void buttonSalas_Click(object sender, EventArgs e)
+        {
+            SalasDashboards d = new SalasDashboards();
+            d.Show();
+            this.Hide();
+        }
+
+        private void buttonEvents_Click(object sender, EventArgs e)
+        {
+            EventsDashboard d = new EventsDashboard();
+            d.Show();
+            this.Hide();
+        }
+
+        private void buttonBockings_Click(object sender, EventArgs e)
+        {
+            ReservationsDashboard d = new ReservationsDashboard();
+            d.Show();
             this.Hide();
         }
     }

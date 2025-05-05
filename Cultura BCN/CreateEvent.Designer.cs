@@ -31,7 +31,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(CreateEvent));
             this.buttonOff = new System.Windows.Forms.PictureBox();
             this.buttonStatistics = new System.Windows.Forms.PictureBox();
-            this.buttonWarehouse = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonBockings = new System.Windows.Forms.PictureBox();
             this.buttonEvents = new System.Windows.Forms.PictureBox();
@@ -41,17 +40,18 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.comboBoxPlace = new System.Windows.Forms.ComboBox();
             this.dateTimePickerDate = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker1 = new System.Windows.Forms.DateTimePicker();
-            this.dateTimePicker2 = new System.Windows.Forms.DateTimePicker();
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.buttonContinue = new System.Windows.Forms.Button();
+            this.dateTimePickerStart = new System.Windows.Forms.DateTimePicker();
+            this.dateTimePickerEnd = new System.Windows.Forms.DateTimePicker();
+            this.comboBoxAge = new System.Windows.Forms.ComboBox();
+            this.textBoxPrice = new System.Windows.Forms.TextBox();
+            this.textBoxCapacity = new System.Windows.Forms.TextBox();
+            this.textBoxRows = new System.Windows.Forms.TextBox();
+            this.textBoxColumns = new System.Windows.Forms.TextBox();
+            this.buttonCreate = new System.Windows.Forms.Button();
+            this.label2 = new System.Windows.Forms.Label();
+            this.checkBoxEnumerated = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonWarehouse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
@@ -69,28 +69,18 @@
             this.buttonOff.Size = new System.Drawing.Size(51, 50);
             this.buttonOff.TabIndex = 24;
             this.buttonOff.TabStop = false;
+            this.buttonOff.Click += new System.EventHandler(this.buttonOff_Click);
             // 
             // buttonStatistics
             // 
             this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
             this.buttonStatistics.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_30;
             this.buttonStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStatistics.Location = new System.Drawing.Point(21, 535);
+            this.buttonStatistics.Location = new System.Drawing.Point(22, 455);
             this.buttonStatistics.Name = "buttonStatistics";
             this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
             this.buttonStatistics.TabIndex = 23;
             this.buttonStatistics.TabStop = false;
-            // 
-            // buttonWarehouse
-            // 
-            this.buttonWarehouse.BackColor = System.Drawing.Color.Transparent;
-            this.buttonWarehouse.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_24;
-            this.buttonWarehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonWarehouse.Location = new System.Drawing.Point(21, 449);
-            this.buttonWarehouse.Name = "buttonWarehouse";
-            this.buttonWarehouse.Size = new System.Drawing.Size(51, 50);
-            this.buttonWarehouse.TabIndex = 22;
-            this.buttonWarehouse.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -102,6 +92,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(51, 50);
             this.pictureBox1.TabIndex = 21;
             this.pictureBox1.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // buttonBockings
             // 
@@ -113,6 +104,7 @@
             this.buttonBockings.Size = new System.Drawing.Size(51, 47);
             this.buttonBockings.TabIndex = 20;
             this.buttonBockings.TabStop = false;
+            this.buttonBockings.Click += new System.EventHandler(this.buttonBockings_Click);
             // 
             // buttonEvents
             // 
@@ -124,6 +116,7 @@
             this.buttonEvents.Size = new System.Drawing.Size(51, 49);
             this.buttonEvents.TabIndex = 19;
             this.buttonEvents.TabStop = false;
+            this.buttonEvents.Click += new System.EventHandler(this.buttonEvents_Click);
             // 
             // buttonSalas
             // 
@@ -135,6 +128,7 @@
             this.buttonSalas.Size = new System.Drawing.Size(51, 54);
             this.buttonSalas.TabIndex = 18;
             this.buttonSalas.TabStop = false;
+            this.buttonSalas.Click += new System.EventHandler(this.buttonSalas_Click);
             // 
             // buttonUsaurios
             // 
@@ -146,6 +140,7 @@
             this.buttonUsaurios.Size = new System.Drawing.Size(51, 50);
             this.buttonUsaurios.TabIndex = 17;
             this.buttonUsaurios.TabStop = false;
+            this.buttonUsaurios.Click += new System.EventHandler(this.buttonUsaurios_Click);
             // 
             // textBoxName
             // 
@@ -187,115 +182,139 @@
             this.dateTimePickerDate.Size = new System.Drawing.Size(311, 27);
             this.dateTimePickerDate.TabIndex = 28;
             // 
-            // dateTimePicker1
+            // dateTimePickerStart
             // 
-            this.dateTimePicker1.CalendarMonthBackground = System.Drawing.Color.Black;
-            this.dateTimePicker1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.dateTimePicker1.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker1.Location = new System.Drawing.Point(498, 286);
-            this.dateTimePicker1.Name = "dateTimePicker1";
-            this.dateTimePicker1.Size = new System.Drawing.Size(168, 27);
-            this.dateTimePicker1.TabIndex = 29;
+            this.dateTimePickerStart.CalendarMonthBackground = System.Drawing.Color.Black;
+            this.dateTimePickerStart.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.dateTimePickerStart.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerStart.Location = new System.Drawing.Point(498, 286);
+            this.dateTimePickerStart.Name = "dateTimePickerStart";
+            this.dateTimePickerStart.Size = new System.Drawing.Size(168, 27);
+            this.dateTimePickerStart.TabIndex = 29;
             // 
-            // dateTimePicker2
+            // dateTimePickerEnd
             // 
-            this.dateTimePicker2.CalendarMonthBackground = System.Drawing.Color.Black;
-            this.dateTimePicker2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
-            this.dateTimePicker2.Format = System.Windows.Forms.DateTimePickerFormat.Time;
-            this.dateTimePicker2.Location = new System.Drawing.Point(715, 288);
-            this.dateTimePicker2.Name = "dateTimePicker2";
-            this.dateTimePicker2.Size = new System.Drawing.Size(159, 27);
-            this.dateTimePicker2.TabIndex = 30;
+            this.dateTimePickerEnd.CalendarMonthBackground = System.Drawing.Color.Black;
+            this.dateTimePickerEnd.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F);
+            this.dateTimePickerEnd.Format = System.Windows.Forms.DateTimePickerFormat.Time;
+            this.dateTimePickerEnd.Location = new System.Drawing.Point(715, 288);
+            this.dateTimePickerEnd.Name = "dateTimePickerEnd";
+            this.dateTimePickerEnd.Size = new System.Drawing.Size(159, 27);
+            this.dateTimePickerEnd.TabIndex = 30;
             // 
-            // comboBox1
+            // comboBoxAge
             // 
-            this.comboBox1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.comboBox1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.comboBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Location = new System.Drawing.Point(857, 358);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(338, 28);
-            this.comboBox1.TabIndex = 31;
+            this.comboBoxAge.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.comboBoxAge.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.comboBoxAge.Font = new System.Drawing.Font("Microsoft Sans Serif", 12.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.comboBoxAge.FormattingEnabled = true;
+            this.comboBoxAge.Location = new System.Drawing.Point(857, 358);
+            this.comboBoxAge.Name = "comboBoxAge";
+            this.comboBoxAge.Size = new System.Drawing.Size(338, 28);
+            this.comboBoxAge.TabIndex = 31;
             // 
-            // textBox1
+            // textBoxPrice
             // 
-            this.textBox1.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(134, 361);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(311, 22);
-            this.textBox1.TabIndex = 32;
+            this.textBoxPrice.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxPrice.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxPrice.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxPrice.Location = new System.Drawing.Point(134, 361);
+            this.textBoxPrice.Name = "textBoxPrice";
+            this.textBoxPrice.Size = new System.Drawing.Size(311, 22);
+            this.textBoxPrice.TabIndex = 32;
             // 
-            // textBox2
+            // textBoxCapacity
             // 
-            this.textBox2.BackColor = System.Drawing.Color.WhiteSmoke;
-            this.textBox2.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox2.Location = new System.Drawing.Point(498, 363);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(302, 22);
-            this.textBox2.TabIndex = 33;
+            this.textBoxCapacity.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxCapacity.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxCapacity.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxCapacity.Location = new System.Drawing.Point(498, 363);
+            this.textBoxCapacity.Name = "textBoxCapacity";
+            this.textBoxCapacity.Size = new System.Drawing.Size(302, 22);
+            this.textBoxCapacity.TabIndex = 33;
             // 
-            // textBox3
+            // textBoxRows
             // 
-            this.textBox3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.textBox3.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox3.Location = new System.Drawing.Point(443, 520);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(176, 22);
-            this.textBox3.TabIndex = 34;
+            this.textBoxRows.BackColor = System.Drawing.Color.White;
+            this.textBoxRows.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxRows.Location = new System.Drawing.Point(443, 520);
+            this.textBoxRows.Name = "textBoxRows";
+            this.textBoxRows.Size = new System.Drawing.Size(176, 22);
+            this.textBoxRows.TabIndex = 34;
+            this.textBoxRows.Visible = false;
             // 
-            // textBox4
+            // textBoxColumns
             // 
-            this.textBox4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(201)))), ((int)(((byte)(201)))), ((int)(((byte)(201)))));
-            this.textBox4.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox4.Location = new System.Drawing.Point(690, 521);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(168, 22);
-            this.textBox4.TabIndex = 35;
+            this.textBoxColumns.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxColumns.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxColumns.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxColumns.Location = new System.Drawing.Point(690, 521);
+            this.textBoxColumns.Name = "textBoxColumns";
+            this.textBoxColumns.Size = new System.Drawing.Size(168, 22);
+            this.textBoxColumns.TabIndex = 35;
+            this.textBoxColumns.Visible = false;
             // 
-            // buttonContinue
+            // buttonCreate
             // 
-            this.buttonContinue.BackgroundImage = global::Cultura_BCN.Properties.Resources.SIGN_IN;
-            this.buttonContinue.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonContinue.Cursor = System.Windows.Forms.Cursors.Default;
-            this.buttonContinue.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.buttonContinue.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonContinue.ForeColor = System.Drawing.Color.White;
-            this.buttonContinue.Location = new System.Drawing.Point(397, 592);
-            this.buttonContinue.Name = "buttonContinue";
-            this.buttonContinue.Size = new System.Drawing.Size(508, 56);
-            this.buttonContinue.TabIndex = 36;
-            this.buttonContinue.Text = "Crear";
-            this.buttonContinue.UseVisualStyleBackColor = true;
+            this.buttonCreate.BackgroundImage = global::Cultura_BCN.Properties.Resources.SIGN_IN;
+            this.buttonCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCreate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreate.ForeColor = System.Drawing.Color.White;
+            this.buttonCreate.Location = new System.Drawing.Point(397, 592);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(508, 56);
+            this.buttonCreate.TabIndex = 36;
+            this.buttonCreate.Text = "Crear";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(331, 449);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(0, 13);
+            this.label2.TabIndex = 38;
+            // 
+            // checkBoxEnumerated
+            // 
+            this.checkBoxEnumerated.AutoSize = true;
+            this.checkBoxEnumerated.BackColor = System.Drawing.Color.Transparent;
+            this.checkBoxEnumerated.Font = new System.Drawing.Font("Microsoft Tai Le", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.checkBoxEnumerated.Location = new System.Drawing.Point(592, 429);
+            this.checkBoxEnumerated.Name = "checkBoxEnumerated";
+            this.checkBoxEnumerated.Size = new System.Drawing.Size(120, 30);
+            this.checkBoxEnumerated.TabIndex = 39;
+            this.checkBoxEnumerated.Text = "Enumerat";
+            this.checkBoxEnumerated.UseVisualStyleBackColor = false;
+            this.checkBoxEnumerated.CheckedChanged += new System.EventHandler(this.checkBoxEnumerated_CheckedChanged);
             // 
             // CreateEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoValidate = System.Windows.Forms.AutoValidate.EnablePreventFocusChange;
-            this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Frame_4__2_;
+            this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Frame_4_not_enum;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
-            this.Controls.Add(this.buttonContinue);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox1);
-            this.Controls.Add(this.dateTimePicker2);
-            this.Controls.Add(this.dateTimePicker1);
+            this.Controls.Add(this.checkBoxEnumerated);
+            this.Controls.Add(this.label2);
+            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.textBoxColumns);
+            this.Controls.Add(this.textBoxRows);
+            this.Controls.Add(this.textBoxCapacity);
+            this.Controls.Add(this.textBoxPrice);
+            this.Controls.Add(this.comboBoxAge);
+            this.Controls.Add(this.dateTimePickerEnd);
+            this.Controls.Add(this.dateTimePickerStart);
             this.Controls.Add(this.dateTimePickerDate);
             this.Controls.Add(this.comboBoxPlace);
             this.Controls.Add(this.textBoxDescription);
             this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonOff);
             this.Controls.Add(this.buttonStatistics);
-            this.Controls.Add(this.buttonWarehouse);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonBockings);
             this.Controls.Add(this.buttonEvents);
@@ -307,9 +326,9 @@
             this.Name = "CreateEvent";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CreateEvent";
+            this.Load += new System.EventHandler(this.CreateEvent_Load);
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonWarehouse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
@@ -324,7 +343,6 @@
 
         private System.Windows.Forms.PictureBox buttonOff;
         private System.Windows.Forms.PictureBox buttonStatistics;
-        private System.Windows.Forms.PictureBox buttonWarehouse;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox buttonBockings;
         private System.Windows.Forms.PictureBox buttonEvents;
@@ -334,13 +352,15 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.ComboBox comboBoxPlace;
         private System.Windows.Forms.DateTimePicker dateTimePickerDate;
-        private System.Windows.Forms.DateTimePicker dateTimePicker1;
-        private System.Windows.Forms.DateTimePicker dateTimePicker2;
-        private System.Windows.Forms.ComboBox comboBox1;
-        private System.Windows.Forms.TextBox textBox1;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.Button buttonContinue;
+        private System.Windows.Forms.DateTimePicker dateTimePickerStart;
+        private System.Windows.Forms.DateTimePicker dateTimePickerEnd;
+        private System.Windows.Forms.ComboBox comboBoxAge;
+        private System.Windows.Forms.TextBox textBoxPrice;
+        private System.Windows.Forms.TextBox textBoxCapacity;
+        private System.Windows.Forms.TextBox textBoxRows;
+        private System.Windows.Forms.TextBox textBoxColumns;
+        private System.Windows.Forms.Button buttonCreate;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.CheckBox checkBoxEnumerated;
     }
 }

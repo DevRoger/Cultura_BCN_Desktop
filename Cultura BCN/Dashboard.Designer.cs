@@ -34,23 +34,21 @@
             this.buttonEvents = new System.Windows.Forms.PictureBox();
             this.buttonBockings = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
-            this.buttonWarehouse = new System.Windows.Forms.PictureBox();
-            this.buttonStatistics = new System.Windows.Forms.PictureBox();
             this.buttonOff = new System.Windows.Forms.PictureBox();
             this.timeClock = new System.Windows.Forms.Label();
             this.labelDate = new System.Windows.Forms.Label();
             this.pictureBoxTotalClients = new System.Windows.Forms.PictureBox();
             this.labelTotalClients = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.buttonStatistics = new System.Windows.Forms.PictureBox();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonWarehouse)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTotalClients)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonUsaurios
@@ -70,18 +68,19 @@
             this.buttonSalas.BackColor = System.Drawing.Color.Transparent;
             this.buttonSalas.BackgroundImage = global::Cultura_BCN.Properties.Resources.image__2_;
             this.buttonSalas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSalas.Location = new System.Drawing.Point(21, 186);
+            this.buttonSalas.Location = new System.Drawing.Point(21, 193);
             this.buttonSalas.Name = "buttonSalas";
             this.buttonSalas.Size = new System.Drawing.Size(51, 54);
             this.buttonSalas.TabIndex = 2;
             this.buttonSalas.TabStop = false;
+            this.buttonSalas.Click += new System.EventHandler(this.buttonSalas_Click);
             // 
             // buttonEvents
             // 
             this.buttonEvents.BackColor = System.Drawing.Color.Transparent;
             this.buttonEvents.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_29;
             this.buttonEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonEvents.Location = new System.Drawing.Point(21, 275);
+            this.buttonEvents.Location = new System.Drawing.Point(21, 276);
             this.buttonEvents.Name = "buttonEvents";
             this.buttonEvents.Size = new System.Drawing.Size(51, 49);
             this.buttonEvents.TabIndex = 3;
@@ -110,28 +109,7 @@
             this.pictureBox1.Size = new System.Drawing.Size(51, 50);
             this.pictureBox1.TabIndex = 5;
             this.pictureBox1.TabStop = false;
-            // 
-            // buttonWarehouse
-            // 
-            this.buttonWarehouse.BackColor = System.Drawing.Color.Transparent;
-            this.buttonWarehouse.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_24;
-            this.buttonWarehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonWarehouse.Location = new System.Drawing.Point(21, 449);
-            this.buttonWarehouse.Name = "buttonWarehouse";
-            this.buttonWarehouse.Size = new System.Drawing.Size(51, 50);
-            this.buttonWarehouse.TabIndex = 6;
-            this.buttonWarehouse.TabStop = false;
-            // 
-            // buttonStatistics
-            // 
-            this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
-            this.buttonStatistics.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_30;
-            this.buttonStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStatistics.Location = new System.Drawing.Point(21, 535);
-            this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
-            this.buttonStatistics.TabIndex = 7;
-            this.buttonStatistics.TabStop = false;
+            this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
             // buttonOff
             // 
@@ -206,6 +184,17 @@
             this.label1.Text = "Usuaris totals";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
+            // buttonStatistics
+            // 
+            this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
+            this.buttonStatistics.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_30;
+            this.buttonStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonStatistics.Location = new System.Drawing.Point(22, 455);
+            this.buttonStatistics.Name = "buttonStatistics";
+            this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
+            this.buttonStatistics.TabIndex = 7;
+            this.buttonStatistics.TabStop = false;
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -220,7 +209,6 @@
             this.Controls.Add(this.timeClock);
             this.Controls.Add(this.buttonOff);
             this.Controls.Add(this.buttonStatistics);
-            this.Controls.Add(this.buttonWarehouse);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonBockings);
             this.Controls.Add(this.buttonEvents);
@@ -238,10 +226,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonWarehouse)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTotalClients)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -253,13 +240,12 @@
         private System.Windows.Forms.PictureBox buttonEvents;
         private System.Windows.Forms.PictureBox buttonBockings;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.PictureBox buttonWarehouse;
-        private System.Windows.Forms.PictureBox buttonStatistics;
         private System.Windows.Forms.PictureBox buttonOff;
         private System.Windows.Forms.Label timeClock;
         private System.Windows.Forms.Label labelDate;
         private System.Windows.Forms.PictureBox pictureBoxTotalClients;
         private System.Windows.Forms.Label labelTotalClients;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.PictureBox buttonStatistics;
     }
 }

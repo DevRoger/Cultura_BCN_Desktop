@@ -58,11 +58,11 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
-    <Compile Include="Events.cs">
+    <Compile Include="EventsDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Events.Designer.cs">
-      <DependentUpon>Events.cs</DependentUpon>
+    <Compile Include="EventsDashboard.Designer.cs">
+      <DependentUpon>EventsDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
@@ -78,14 +78,32 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ReservationsDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ReservationsDashboard.Designer.cs">
+      <DependentUpon>ReservationsDashboard.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SalasDashboards.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SalasDashboards.Designer.cs">
+      <DependentUpon>SalasDashboards.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UsersDashboard.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UsersDashboard.Designer.cs">
+      <DependentUpon>UsersDashboard.cs</DependentUpon>
+    </Compile>
     <EmbeddedResource Include="CreateEvent.resx">
       <DependentUpon>CreateEvent.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Dashboard.resx">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Events.resx">
-      <DependentUpon>Events.cs</DependentUpon>
+    <EmbeddedResource Include="EventsDashboard.resx">
+      <DependentUpon>EventsDashboard.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
@@ -103,6 +121,15 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="ReservationsDashboard.resx">
+      <DependentUpon>ReservationsDashboard.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SalasDashboards.resx">
+      <DependentUpon>SalasDashboards.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UsersDashboard.resx">
+      <DependentUpon>UsersDashboard.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>
@@ -190,6 +217,20 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="Resources\Frame 4 %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Frame 3 %284%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Frame_4_with_enum1.png" />
+    <None Include="Resources\Frame_4_with_enum.png" />
+    <None Include="Resources\Frame 3 %289%29.png" />
+    <None Include="Resources\Frame 3 %288%29.png" />
+    <None Include="Resources\Frame 3 %286%29.png" />
+    <None Include="Resources\Frame 3 %285%29.png" />
+    <Content Include="Resources\Frame 4_enum.png" />
+    <Content Include="Resources\Frame4_with_enum.png" />
+    <None Include="Resources\Frame 4_not_enum.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

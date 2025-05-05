@@ -19,12 +19,16 @@ namespace Cultura_BCN
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-
+            UsersDashboard usersDashboard = new UsersDashboard();
+            usersDashboard.Show();
+            this.Hide();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-
+            ReservationsDashboard reservationsDashboard = new ReservationsDashboard();
+            reservationsDashboard.Show();
+            this.Hide();
         }
 
         private void buttonOff_Click(object sender, EventArgs e)
@@ -39,9 +43,21 @@ namespace Cultura_BCN
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            Events f = new Events();
+            EventsDashboard f = new EventsDashboard();
             f.Show();
             this.Hide();
+        }
+
+        private void buttonSalas_Click(object sender, EventArgs e)
+        {
+            SalasDashboards salasDashboards = new SalasDashboards();
+            salasDashboards.Show();
+            this.Hide();
+        }
+
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

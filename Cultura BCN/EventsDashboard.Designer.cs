@@ -1,6 +1,6 @@
 ﻿namespace Cultura_BCN
 {
-    partial class Events
+    partial class EventsDashboard
     {
         /// <summary>
         /// Required designer variable.
@@ -28,31 +28,29 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Events));
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsDashboard));
             this.buttonOff = new System.Windows.Forms.PictureBox();
             this.buttonStatistics = new System.Windows.Forms.PictureBox();
-            this.buttonWarehouse = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonBockings = new System.Windows.Forms.PictureBox();
             this.buttonEvents = new System.Windows.Forms.PictureBox();
             this.buttonSalas = new System.Windows.Forms.PictureBox();
             this.buttonUsaurios = new System.Windows.Forms.PictureBox();
             this.textBoxEmail = new System.Windows.Forms.TextBox();
-            this.pictureBox2 = new System.Windows.Forms.PictureBox();
-            this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.pictureBox4 = new System.Windows.Forms.PictureBox();
+            this.editEvents = new System.Windows.Forms.PictureBox();
+            this.deleteEvents = new System.Windows.Forms.PictureBox();
+            this.createEvents = new System.Windows.Forms.PictureBox();
             this.dataGridViewEvents = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonWarehouse)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editEvents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deleteEvents)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).BeginInit();
             this.SuspendLayout();
             // 
@@ -73,22 +71,11 @@
             this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
             this.buttonStatistics.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_30;
             this.buttonStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStatistics.Location = new System.Drawing.Point(21, 535);
+            this.buttonStatistics.Location = new System.Drawing.Point(22, 455);
             this.buttonStatistics.Name = "buttonStatistics";
             this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
             this.buttonStatistics.TabIndex = 15;
             this.buttonStatistics.TabStop = false;
-            // 
-            // buttonWarehouse
-            // 
-            this.buttonWarehouse.BackColor = System.Drawing.Color.Transparent;
-            this.buttonWarehouse.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_24;
-            this.buttonWarehouse.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonWarehouse.Location = new System.Drawing.Point(21, 449);
-            this.buttonWarehouse.Name = "buttonWarehouse";
-            this.buttonWarehouse.Size = new System.Drawing.Size(51, 50);
-            this.buttonWarehouse.TabIndex = 14;
-            this.buttonWarehouse.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -112,6 +99,7 @@
             this.buttonBockings.Size = new System.Drawing.Size(51, 47);
             this.buttonBockings.TabIndex = 12;
             this.buttonBockings.TabStop = false;
+            this.buttonBockings.Click += new System.EventHandler(this.buttonBockings_Click);
             // 
             // buttonEvents
             // 
@@ -123,17 +111,19 @@
             this.buttonEvents.Size = new System.Drawing.Size(51, 49);
             this.buttonEvents.TabIndex = 11;
             this.buttonEvents.TabStop = false;
+            this.buttonEvents.Click += new System.EventHandler(this.buttonEvents_Click);
             // 
             // buttonSalas
             // 
             this.buttonSalas.BackColor = System.Drawing.Color.Transparent;
             this.buttonSalas.BackgroundImage = global::Cultura_BCN.Properties.Resources.image__2_;
             this.buttonSalas.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonSalas.Location = new System.Drawing.Point(21, 186);
+            this.buttonSalas.Location = new System.Drawing.Point(21, 193);
             this.buttonSalas.Name = "buttonSalas";
             this.buttonSalas.Size = new System.Drawing.Size(51, 54);
             this.buttonSalas.TabIndex = 10;
             this.buttonSalas.TabStop = false;
+            this.buttonSalas.Click += new System.EventHandler(this.buttonSalas_Click);
             // 
             // buttonUsaurios
             // 
@@ -145,6 +135,7 @@
             this.buttonUsaurios.Size = new System.Drawing.Size(51, 50);
             this.buttonUsaurios.TabIndex = 9;
             this.buttonUsaurios.TabStop = false;
+            this.buttonUsaurios.Click += new System.EventHandler(this.buttonUsaurios_Click);
             // 
             // textBoxEmail
             // 
@@ -156,39 +147,39 @@
             this.textBoxEmail.TabIndex = 17;
             this.textBoxEmail.TextChanged += new System.EventHandler(this.textBoxEmail_TextChanged);
             // 
-            // pictureBox2
+            // editEvents
             // 
-            this.pictureBox2.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox2.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_43;
-            this.pictureBox2.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox2.Location = new System.Drawing.Point(1007, 16);
-            this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox2.TabIndex = 18;
-            this.pictureBox2.TabStop = false;
+            this.editEvents.BackColor = System.Drawing.Color.Transparent;
+            this.editEvents.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_43;
+            this.editEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.editEvents.Location = new System.Drawing.Point(1007, 16);
+            this.editEvents.Name = "editEvents";
+            this.editEvents.Size = new System.Drawing.Size(51, 50);
+            this.editEvents.TabIndex = 18;
+            this.editEvents.TabStop = false;
             // 
-            // pictureBox3
+            // deleteEvents
             // 
-            this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox3.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_44;
-            this.pictureBox3.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox3.Location = new System.Drawing.Point(1081, 17);
-            this.pictureBox3.Name = "pictureBox3";
-            this.pictureBox3.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox3.TabIndex = 19;
-            this.pictureBox3.TabStop = false;
+            this.deleteEvents.BackColor = System.Drawing.Color.Transparent;
+            this.deleteEvents.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_44;
+            this.deleteEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.deleteEvents.Location = new System.Drawing.Point(1081, 17);
+            this.deleteEvents.Name = "deleteEvents";
+            this.deleteEvents.Size = new System.Drawing.Size(51, 50);
+            this.deleteEvents.TabIndex = 19;
+            this.deleteEvents.TabStop = false;
             // 
-            // pictureBox4
+            // createEvents
             // 
-            this.pictureBox4.BackColor = System.Drawing.Color.Transparent;
-            this.pictureBox4.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_91;
-            this.pictureBox4.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.pictureBox4.Location = new System.Drawing.Point(1158, 17);
-            this.pictureBox4.Name = "pictureBox4";
-            this.pictureBox4.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox4.TabIndex = 20;
-            this.pictureBox4.TabStop = false;
-            this.pictureBox4.Click += new System.EventHandler(this.pictureBox4_Click);
+            this.createEvents.BackColor = System.Drawing.Color.Transparent;
+            this.createEvents.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_91;
+            this.createEvents.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.createEvents.Location = new System.Drawing.Point(1158, 17);
+            this.createEvents.Name = "createEvents";
+            this.createEvents.Size = new System.Drawing.Size(51, 50);
+            this.createEvents.TabIndex = 20;
+            this.createEvents.TabStop = false;
+            this.createEvents.Click += new System.EventHandler(this.pictureBox4_Click);
             // 
             // dataGridViewEvents
             // 
@@ -201,7 +192,7 @@
             this.dataGridViewEvents.TabIndex = 21;
             this.dataGridViewEvents.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridView1_CellContentClick);
             // 
-            // Events
+            // EventsDashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -209,13 +200,12 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
             this.Controls.Add(this.dataGridViewEvents);
-            this.Controls.Add(this.pictureBox4);
-            this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.pictureBox2);
+            this.Controls.Add(this.createEvents);
+            this.Controls.Add(this.deleteEvents);
+            this.Controls.Add(this.editEvents);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.buttonOff);
             this.Controls.Add(this.buttonStatistics);
-            this.Controls.Add(this.buttonWarehouse);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonBockings);
             this.Controls.Add(this.buttonEvents);
@@ -224,20 +214,19 @@
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "Events";
+            this.Name = "EventsDashboard";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Events";
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonWarehouse)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox4)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.editEvents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.deleteEvents)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.createEvents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewEvents)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -248,16 +237,15 @@
 
         private System.Windows.Forms.PictureBox buttonOff;
         private System.Windows.Forms.PictureBox buttonStatistics;
-        private System.Windows.Forms.PictureBox buttonWarehouse;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox buttonBockings;
         private System.Windows.Forms.PictureBox buttonEvents;
         private System.Windows.Forms.PictureBox buttonSalas;
         private System.Windows.Forms.PictureBox buttonUsaurios;
         private System.Windows.Forms.TextBox textBoxEmail;
-        private System.Windows.Forms.PictureBox pictureBox2;
-        private System.Windows.Forms.PictureBox pictureBox3;
-        private System.Windows.Forms.PictureBox pictureBox4;
+        private System.Windows.Forms.PictureBox editEvents;
+        private System.Windows.Forms.PictureBox deleteEvents;
+        private System.Windows.Forms.PictureBox createEvents;
         private System.Windows.Forms.DataGridView dataGridViewEvents;
     }
 }
