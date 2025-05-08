@@ -3,8 +3,10 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
@@ -12,9 +14,33 @@ namespace Cultura_BCN
 {
     public partial class Dashboard : Form
     {
+        private string timeHoure;
         public Dashboard()
         {
             InitializeComponent();
+            string date = DateTime.Now.ToString("d MMMM yyyy", new CultureInfo("ca-ES"));
+            labelDate.Text = date;
+            timeHoure = DateTime.Now.ToString("HH:mm");
+            timeClock.Text = timeHoure;
+            Thread threadTime = new Thread(() =>
+            {
+                while (true)
+                {
+                    string newDate = DateTime.Now.ToString("HH:mm");
+                    if (newDate != timeHoure) { 
+                        timeHoure = newDate;
+                        timeClock.Invoke(new Action(() =>
+                        {
+                            timeClock.Text = timeHoure;
+                        }));
+                    }
+                    Thread.Sleep(1000); 
+                }
+            });
+
+            threadTime.IsBackground = true;
+            threadTime.Start();
+
         }
 
         private void pictureBox2_Click(object sender, EventArgs e)
