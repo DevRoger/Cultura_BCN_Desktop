@@ -14,12 +14,6 @@ namespace Cultura_BCN.Model
     
     public partial class eventos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public eventos()
-        {
-            this.asientos = new HashSet<asientos>();
-        }
-    
         public int id_evento { get; set; }
         public string nombre { get; set; }
         public string descripcion { get; set; }
@@ -31,9 +25,5 @@ namespace Cultura_BCN.Model
         public int edad_minima { get; set; }
         public bool enumerado { get; set; }
         public int id_sala { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<asientos> asientos { get; set; }
-        public virtual salas salas { get; set; }
     }
 }

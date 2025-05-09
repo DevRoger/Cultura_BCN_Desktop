@@ -259,8 +259,6 @@
           <Property Name="numero" Type="Int32" Nullable="false" />
           <Property Name="disponible" Type="Boolean" Nullable="false" />
           <Property Name="id_evento" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="eventos" Relationship="Self.fk_asiento_evento" FromRole="asientos" ToRole="eventos" />
-          <NavigationProperty Name="reservas_entradas" Relationship="Self.fk_reserva_asiento" FromRole="asientos" ToRole="reservas_entradas" />
         </EntityType>
         <EntityType Name="chats">
           <Key>
@@ -270,9 +268,6 @@
           <Property Name="id_usuario_1" Type="Int32" Nullable="false" />
           <Property Name="id_usuario_2" Type="Int32" Nullable="false" />
           <Property Name="fecha_creacion" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="usuarios" Relationship="Self.fk_chat_usuario1" FromRole="chats" ToRole="usuarios" />
-          <NavigationProperty Name="usuarios1" Relationship="Self.fk_chat_usuario2" FromRole="chats" ToRole="usuarios" />
-          <NavigationProperty Name="mensajes" Relationship="Self.fk_mensaje_chat" FromRole="chats" ToRole="mensajes" />
         </EntityType>
         <EntityType Name="eventos">
           <Key>
@@ -283,14 +278,12 @@
           <Property Name="descripcion" Type="String" MaxLength="1000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fecha" Type="DateTime" Nullable="false" Precision="0" />
           <Property Name="hora_inicio" Type="Time" Nullable="false" Precision="7" />
-          <Property Name="hora_fin" Type="Time" Nullable="false" Precision="7" />
+          <Property Name="hora_fin" Type="Time" Nullable="false" />
           <Property Name="lugar" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="precio" Type="Decimal" Precision="10" Scale="2" Nullable="false" />
           <Property Name="edad_minima" Type="Int32" Nullable="false" />
           <Property Name="enumerado" Type="Boolean" Nullable="false" />
           <Property Name="id_sala" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="asientos" Relationship="Self.fk_asiento_evento" FromRole="eventos" ToRole="asientos" />
-          <NavigationProperty Name="salas" Relationship="Self.fk_evento_sala" FromRole="eventos" ToRole="salas" />
         </EntityType>
         <EntityType Name="mensajes">
           <Key>
@@ -302,8 +295,6 @@
           <Property Name="texto" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="fecha_envio" Type="DateTime" Nullable="false" Precision="3" />
           <Property Name="visto" Type="Boolean" Nullable="false" />
-          <NavigationProperty Name="chats" Relationship="Self.fk_mensaje_chat" FromRole="mensajes" ToRole="chats" />
-          <NavigationProperty Name="usuarios" Relationship="Self.fk_mensaje_usuario" FromRole="mensajes" ToRole="usuarios" />
         </EntityType>
         <EntityType Name="reservas_entradas">
           <Key>
@@ -313,8 +304,6 @@
           <Property Name="id_asiento" Type="Int32" Nullable="false" />
           <Property Name="id_usuario" Type="Int32" Nullable="false" />
           <Property Name="fecha_reserva" Type="DateTime" Nullable="false" Precision="3" />
-          <NavigationProperty Name="asientos" Relationship="Self.fk_reserva_asiento" FromRole="reservas_entradas" ToRole="asientos" />
-          <NavigationProperty Name="usuarios" Relationship="Self.fk_reserva_usuario" FromRole="reservas_entradas" ToRole="usuarios" />
         </EntityType>
         <EntityType Name="roles">
           <Key>
@@ -322,7 +311,6 @@
           </Key>
           <Property Name="id_rol" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
           <Property Name="nombre" Type="String" MaxLength="50" FixedLength="false" Unicode="false" Nullable="false" />
-          <NavigationProperty Name="usuarios" Relationship="Self.fk_usuario_rol" FromRole="roles" ToRole="usuarios" />
         </EntityType>
         <EntityType Name="salas">
           <Key>
@@ -332,7 +320,6 @@
           <Property Name="nombre" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="direccion" Type="String" MaxLength="255" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="aforo" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="eventos" Relationship="Self.fk_evento_sala" FromRole="salas" ToRole="eventos" />
         </EntityType>
         <EntityType Name="usuarios">
           <Key>
@@ -348,11 +335,6 @@
           <Property Name="telefono" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
           <Property Name="foto_url" Type="String" MaxLength="255" FixedLength="false" Unicode="false" />
           <Property Name="id_rol" Type="Int32" Nullable="false" />
-          <NavigationProperty Name="chats" Relationship="Self.fk_chat_usuario1" FromRole="usuarios" ToRole="chats" />
-          <NavigationProperty Name="chats1" Relationship="Self.fk_chat_usuario2" FromRole="usuarios" ToRole="chats" />
-          <NavigationProperty Name="mensajes" Relationship="Self.fk_mensaje_usuario" FromRole="usuarios" ToRole="mensajes" />
-          <NavigationProperty Name="reservas_entradas" Relationship="Self.fk_reserva_usuario" FromRole="usuarios" ToRole="reservas_entradas" />
-          <NavigationProperty Name="roles" Relationship="Self.fk_usuario_rol" FromRole="usuarios" ToRole="roles" />
         </EntityType>
         <Association Name="fk_asiento_evento">
           <End Role="eventos" Type="Self.eventos" Multiplicity="1" />

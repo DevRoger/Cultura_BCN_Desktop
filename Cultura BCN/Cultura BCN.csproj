@@ -55,6 +55,9 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AppDbContext.cs" />
+    <Compile Include="Asientos.cs" />
+    <Compile Include="Chats.cs" />
     <Compile Include="CreateEvent.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -73,6 +76,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="Eventos.cs" />
     <Compile Include="EventsDashboard.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -91,6 +95,7 @@
     <Compile Include="Login.Designer.cs">
       <DependentUpon>Login.cs</DependentUpon>
     </Compile>
+    <Compile Include="Mensajes.cs" />
     <Compile Include="Model\asientos.cs">
       <DependentUpon>ModelCulturaBCN.tt</DependentUpon>
     </Compile>
@@ -140,6 +145,7 @@
       <DependentUpon>ReservationsDashboard.cs</DependentUpon>
     </Compile>
     <Compile Include="Roles.cs" />
+    <Compile Include="Salas.cs" />
     <Compile Include="SalasDashboards.cs">
       <SubType>Form</SubType>
     </Compile>

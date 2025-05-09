@@ -20,8 +20,5 @@ namespace Cultura_BCN.Model
         public string texto { get; set; }
         public System.DateTime fecha_envio { get; set; }
         public bool visto { get; set; }
-    
-        public virtual chats chats { get; set; }
-        public virtual usuarios usuarios { get; set; }
     }
 }

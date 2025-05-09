@@ -14,15 +14,6 @@ namespace Cultura_BCN.Model
     
     public partial class usuarios
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public usuarios()
-        {
-            this.chats = new HashSet<chats>();
-            this.chats1 = new HashSet<chats>();
-            this.mensajes = new HashSet<mensajes>();
-            this.reservas_entradas = new HashSet<reservas_entradas>();
-        }
-    
         public int id_usuario { get; set; }
         public string nombre { get; set; }
         public string apellidos { get; set; }
@@ -33,15 +24,5 @@ namespace Cultura_BCN.Model
         public string telefono { get; set; }
         public string foto_url { get; set; }
         public int id_rol { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chats> chats { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<chats> chats1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<mensajes> mensajes { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reservas_entradas> reservas_entradas { get; set; }
-        public virtual roles roles { get; set; }
     }
 }

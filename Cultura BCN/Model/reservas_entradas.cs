@@ -18,8 +18,5 @@ namespace Cultura_BCN.Model
         public int id_asiento { get; set; }
         public int id_usuario { get; set; }
         public System.DateTime fecha_reserva { get; set; }
-    
-        public virtual asientos asientos { get; set; }
-        public virtual usuarios usuarios { get; set; }
     }
 }

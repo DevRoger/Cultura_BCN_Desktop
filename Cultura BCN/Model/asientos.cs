@@ -14,19 +14,9 @@ namespace Cultura_BCN.Model
     
     public partial class asientos
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public asientos()
-        {
-            this.reservas_entradas = new HashSet<reservas_entradas>();
-        }
-    
         public int id_asiento { get; set; }
         public int numero { get; set; }
         public bool disponible { get; set; }
         public int id_evento { get; set; }
-    
-        public virtual eventos eventos { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<reservas_entradas> reservas_entradas { get; set; }
     }
 }

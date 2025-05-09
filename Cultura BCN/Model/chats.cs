@@ -14,20 +14,9 @@ namespace Cultura_BCN.Model
     
     public partial class chats
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public chats()
-        {
-            this.mensajes = new HashSet<mensajes>();
-        }
-    
         public int id_chat { get; set; }
         public int id_usuario_1 { get; set; }
         public int id_usuario_2 { get; set; }
         public System.DateTime fecha_creacion { get; set; }
-    
-        public virtual usuarios usuarios { get; set; }
-        public virtual usuarios usuarios1 { get; set; }
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<mensajes> mensajes { get; set; }
     }
 }

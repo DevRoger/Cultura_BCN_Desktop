@@ -39,6 +39,12 @@ namespace Cultura_BCN
             });
 
             threadTime.IsBackground = true;
+
+            using (var context = new AppDbContext())
+            {
+                var usuarios = context.Usuarios.ToList();
+                labelTotalClients.Text = usuarios.Count.ToString();
+            }
             threadTime.Start();
 
         }

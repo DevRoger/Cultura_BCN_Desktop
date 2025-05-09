@@ -14,16 +14,7 @@ namespace Cultura_BCN.Model
     
     public partial class roles
     {
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2214:DoNotCallOverridableMethodsInConstructors")]
-        public roles()
-        {
-            this.usuarios = new HashSet<usuarios>();
-        }
-    
         public int id_rol { get; set; }
         public string nombre { get; set; }
-    
-        [System.Diagnostics.CodeAnalysis.SuppressMessage("Microsoft.Usage", "CA2227:CollectionPropertiesShouldBeReadOnly")]
-        public virtual ICollection<usuarios> usuarios { get; set; }
     }
 }
