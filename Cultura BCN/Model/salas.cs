@@ -18,22 +18,5 @@ namespace Cultura_BCN.Model
         public string nombre { get; set; }
         public string direccion { get; set; }
         public int aforo { get; set; }
-        public salas(int id_sala, int aforo, string nombre, string direccion)
-        {
-            this.id_sala = id_sala;
-            this.aforo = aforo;
-            this.nombre = nombre;
-            this.direccion = direccion;
-        }
-        public salas()
-        {
-           
-        }
-        public salas(int aforo, string nombre, string direccion)
-        {
-            this.aforo = aforo;
-            this.nombre = nombre;
-            this.direccion = direccion;
-        }
     }
 }
