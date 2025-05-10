@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cultura_BCN.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,12 @@ namespace Cultura_BCN
         public UsersDashboard()
         {
             InitializeComponent();
+            using (var context = new CulturaBCNEntities())
+            {
+                var list = context.usuarios.ToList();
+                dataGridViewUsers.DataSource = list;
+            }
+
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -67,6 +74,11 @@ namespace Cultura_BCN
             CreateUser createUser = new CreateUser();
             createUser.Show();
             this.Hide();
+        }
+
+        private void dataGridViewUsers_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
     }
 }

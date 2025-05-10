@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cultura_BCN.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -40,11 +41,9 @@ namespace Cultura_BCN
 
             threadTime.IsBackground = true;
 
-            using (var context = new AppDbContext())
-            {
-                var usuarios = context.Usuarios.ToList();
-                labelTotalClients.Text = usuarios.Count.ToString();
-            }
+            using (var context = new CulturaBCNEntities()) {
+                labelTotalClients.Text = context.usuarios.Count().ToString(); }
+
             threadTime.Start();
 
         }
@@ -88,6 +87,11 @@ namespace Cultura_BCN
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click(object sender, EventArgs e)
         {
 
         }

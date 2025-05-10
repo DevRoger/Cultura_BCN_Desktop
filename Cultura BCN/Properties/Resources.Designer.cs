@@ -273,6 +273,16 @@ namespace Cultura_BCN.Properties {
         /// <summary>
         ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
         /// </summary>
+        internal static System.Drawing.Bitmap Frame_6 {
+            get {
+                object obj = ResourceManager.GetObject("Frame 6", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Busca un recurso adaptado de tipo System.Drawing.Bitmap.
+        /// </summary>
         internal static System.Drawing.Bitmap Group_43 {
             get {
                 object obj = ResourceManager.GetObject("Group 43", resourceCulture);

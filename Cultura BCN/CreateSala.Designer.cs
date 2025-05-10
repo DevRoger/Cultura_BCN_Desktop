@@ -1,6 +1,6 @@
 ﻿namespace Cultura_BCN
 {
-    partial class UsersDashboard
+    partial class CreateSala
     {
         /// <summary>
         /// Required designer variable.
@@ -28,7 +28,6 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(UsersDashboard));
             this.buttonOff = new System.Windows.Forms.PictureBox();
             this.buttonStatistics = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -36,11 +35,10 @@
             this.buttonEvents = new System.Windows.Forms.PictureBox();
             this.buttonSalas = new System.Windows.Forms.PictureBox();
             this.buttonUsaurios = new System.Windows.Forms.PictureBox();
-            this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
-            this.createUsers = new System.Windows.Forms.PictureBox();
-            this.deleteUsers = new System.Windows.Forms.PictureBox();
-            this.editUsers = new System.Windows.Forms.PictureBox();
+            this.textBoxAddress = new System.Windows.Forms.TextBox();
+            this.textBoxName = new System.Windows.Forms.TextBox();
+            this.textBoxTotalPeople = new System.Windows.Forms.TextBox();
+            this.buttonCreate = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -48,10 +46,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.createUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deleteUsers)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOff
@@ -62,7 +56,7 @@
             this.buttonOff.Location = new System.Drawing.Point(22, 617);
             this.buttonOff.Name = "buttonOff";
             this.buttonOff.Size = new System.Drawing.Size(51, 50);
-            this.buttonOff.TabIndex = 41;
+            this.buttonOff.TabIndex = 48;
             this.buttonOff.TabStop = false;
             this.buttonOff.Click += new System.EventHandler(this.buttonOff_Click);
             // 
@@ -74,7 +68,7 @@
             this.buttonStatistics.Location = new System.Drawing.Point(22, 455);
             this.buttonStatistics.Name = "buttonStatistics";
             this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
-            this.buttonStatistics.TabIndex = 40;
+            this.buttonStatistics.TabIndex = 47;
             this.buttonStatistics.TabStop = false;
             // 
             // pictureBox1
@@ -85,7 +79,7 @@
             this.pictureBox1.Location = new System.Drawing.Point(22, 24);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(51, 50);
-            this.pictureBox1.TabIndex = 38;
+            this.pictureBox1.TabIndex = 46;
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
@@ -97,7 +91,7 @@
             this.buttonBockings.Location = new System.Drawing.Point(22, 366);
             this.buttonBockings.Name = "buttonBockings";
             this.buttonBockings.Size = new System.Drawing.Size(51, 47);
-            this.buttonBockings.TabIndex = 37;
+            this.buttonBockings.TabIndex = 45;
             this.buttonBockings.TabStop = false;
             this.buttonBockings.Click += new System.EventHandler(this.buttonBockings_Click);
             // 
@@ -109,7 +103,7 @@
             this.buttonEvents.Location = new System.Drawing.Point(22, 279);
             this.buttonEvents.Name = "buttonEvents";
             this.buttonEvents.Size = new System.Drawing.Size(51, 49);
-            this.buttonEvents.TabIndex = 36;
+            this.buttonEvents.TabIndex = 44;
             this.buttonEvents.TabStop = false;
             this.buttonEvents.Click += new System.EventHandler(this.buttonEvents_Click);
             // 
@@ -121,7 +115,7 @@
             this.buttonSalas.Location = new System.Drawing.Point(22, 196);
             this.buttonSalas.Name = "buttonSalas";
             this.buttonSalas.Size = new System.Drawing.Size(51, 54);
-            this.buttonSalas.TabIndex = 35;
+            this.buttonSalas.TabIndex = 43;
             this.buttonSalas.TabStop = false;
             this.buttonSalas.Click += new System.EventHandler(this.buttonSalas_Click);
             // 
@@ -133,76 +127,67 @@
             this.buttonUsaurios.Location = new System.Drawing.Point(22, 108);
             this.buttonUsaurios.Name = "buttonUsaurios";
             this.buttonUsaurios.Size = new System.Drawing.Size(51, 50);
-            this.buttonUsaurios.TabIndex = 34;
+            this.buttonUsaurios.TabIndex = 42;
             this.buttonUsaurios.TabStop = false;
             this.buttonUsaurios.Click += new System.EventHandler(this.buttonUsaurios_Click);
             // 
-            // textBoxSearch
+            // textBoxAddress
             // 
-            this.textBoxSearch.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBoxSearch.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxSearch.Location = new System.Drawing.Point(128, 27);
-            this.textBoxSearch.Name = "textBoxSearch";
-            this.textBoxSearch.Size = new System.Drawing.Size(377, 31);
-            this.textBoxSearch.TabIndex = 46;
+            this.textBoxAddress.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxAddress.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxAddress.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxAddress.Location = new System.Drawing.Point(132, 214);
+            this.textBoxAddress.Name = "textBoxAddress";
+            this.textBoxAddress.Size = new System.Drawing.Size(698, 22);
+            this.textBoxAddress.TabIndex = 50;
             // 
-            // dataGridViewUsers
+            // textBoxName
             // 
-            this.dataGridViewUsers.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsers.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(96, 85);
-            this.dataGridViewUsers.Name = "dataGridViewUsers";
-            this.dataGridViewUsers.Size = new System.Drawing.Size(1138, 606);
-            this.dataGridViewUsers.TabIndex = 45;
-            this.dataGridViewUsers.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewUsers_CellContentClick);
+            this.textBoxName.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxName.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxName.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxName.Location = new System.Drawing.Point(126, 141);
+            this.textBoxName.Name = "textBoxName";
+            this.textBoxName.Size = new System.Drawing.Size(1068, 22);
+            this.textBoxName.TabIndex = 49;
             // 
-            // createUsers
+            // textBoxTotalPeople
             // 
-            this.createUsers.BackColor = System.Drawing.Color.Transparent;
-            this.createUsers.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_91;
-            this.createUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.createUsers.Location = new System.Drawing.Point(1158, 17);
-            this.createUsers.Name = "createUsers";
-            this.createUsers.Size = new System.Drawing.Size(51, 50);
-            this.createUsers.TabIndex = 44;
-            this.createUsers.TabStop = false;
-            this.createUsers.Click += new System.EventHandler(this.createUsers_Click);
+            this.textBoxTotalPeople.BackColor = System.Drawing.Color.WhiteSmoke;
+            this.textBoxTotalPeople.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBoxTotalPeople.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBoxTotalPeople.Location = new System.Drawing.Point(870, 214);
+            this.textBoxTotalPeople.Name = "textBoxTotalPeople";
+            this.textBoxTotalPeople.Size = new System.Drawing.Size(326, 22);
+            this.textBoxTotalPeople.TabIndex = 51;
             // 
-            // deleteUsers
+            // buttonCreate
             // 
-            this.deleteUsers.BackColor = System.Drawing.Color.Transparent;
-            this.deleteUsers.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_44;
-            this.deleteUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.deleteUsers.Location = new System.Drawing.Point(1081, 17);
-            this.deleteUsers.Name = "deleteUsers";
-            this.deleteUsers.Size = new System.Drawing.Size(51, 50);
-            this.deleteUsers.TabIndex = 43;
-            this.deleteUsers.TabStop = false;
+            this.buttonCreate.BackgroundImage = global::Cultura_BCN.Properties.Resources.SIGN_IN;
+            this.buttonCreate.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.buttonCreate.Cursor = System.Windows.Forms.Cursors.Default;
+            this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonCreate.ForeColor = System.Drawing.Color.White;
+            this.buttonCreate.Location = new System.Drawing.Point(371, 291);
+            this.buttonCreate.Name = "buttonCreate";
+            this.buttonCreate.Size = new System.Drawing.Size(508, 56);
+            this.buttonCreate.TabIndex = 52;
+            this.buttonCreate.Text = "Crear";
+            this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
-            // editUsers
-            // 
-            this.editUsers.BackColor = System.Drawing.Color.Transparent;
-            this.editUsers.BackgroundImage = global::Cultura_BCN.Properties.Resources.Group_43;
-            this.editUsers.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.editUsers.Location = new System.Drawing.Point(1007, 16);
-            this.editUsers.Name = "editUsers";
-            this.editUsers.Size = new System.Drawing.Size(51, 50);
-            this.editUsers.TabIndex = 42;
-            this.editUsers.TabStop = false;
-            // 
-            // UsersDashboard
+            // CreateSala
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Frame_3__8_;
+            this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Frame_6;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
-            this.Controls.Add(this.textBoxSearch);
-            this.Controls.Add(this.dataGridViewUsers);
-            this.Controls.Add(this.createUsers);
-            this.Controls.Add(this.deleteUsers);
-            this.Controls.Add(this.editUsers);
+            this.Controls.Add(this.buttonCreate);
+            this.Controls.Add(this.textBoxTotalPeople);
+            this.Controls.Add(this.textBoxAddress);
+            this.Controls.Add(this.textBoxName);
             this.Controls.Add(this.buttonOff);
             this.Controls.Add(this.buttonStatistics);
             this.Controls.Add(this.pictureBox1);
@@ -210,13 +195,12 @@
             this.Controls.Add(this.buttonEvents);
             this.Controls.Add(this.buttonSalas);
             this.Controls.Add(this.buttonUsaurios);
+            this.Cursor = System.Windows.Forms.Cursors.Default;
             this.DoubleBuffered = true;
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.None;
-            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
-            this.Name = "UsersDashboard";
+            this.Name = "CreateSala";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
-            this.Text = "Users";
-            this.Load += new System.EventHandler(this.Users_Load);
+            this.Text = "CreateSala";
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -224,10 +208,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.createUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.deleteUsers)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.editUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -242,10 +222,9 @@
         private System.Windows.Forms.PictureBox buttonEvents;
         private System.Windows.Forms.PictureBox buttonSalas;
         private System.Windows.Forms.PictureBox buttonUsaurios;
-        private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.DataGridView dataGridViewUsers;
-        private System.Windows.Forms.PictureBox createUsers;
-        private System.Windows.Forms.PictureBox deleteUsers;
-        private System.Windows.Forms.PictureBox editUsers;
+        private System.Windows.Forms.TextBox textBoxAddress;
+        private System.Windows.Forms.TextBox textBoxName;
+        private System.Windows.Forms.TextBox textBoxTotalPeople;
+        private System.Windows.Forms.Button buttonCreate;
     }
 }

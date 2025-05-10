@@ -127,11 +127,11 @@
             // 
             this.timeClock.AutoSize = true;
             this.timeClock.BackColor = System.Drawing.Color.Transparent;
-            this.timeClock.Font = new System.Drawing.Font("Lucida Sans", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.timeClock.Font = new System.Drawing.Font("Microsoft Sans Serif", 72F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.timeClock.ForeColor = System.Drawing.Color.White;
             this.timeClock.Location = new System.Drawing.Point(868, 59);
             this.timeClock.Name = "timeClock";
-            this.timeClock.Size = new System.Drawing.Size(321, 109);
+            this.timeClock.Size = new System.Drawing.Size(284, 108);
             this.timeClock.TabIndex = 9;
             this.timeClock.Text = "13:00";
             // 
@@ -139,11 +139,11 @@
             // 
             this.labelDate.AutoSize = true;
             this.labelDate.BackColor = System.Drawing.Color.Transparent;
-            this.labelDate.Font = new System.Drawing.Font("Lucida Sans", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelDate.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelDate.ForeColor = System.Drawing.Color.Transparent;
             this.labelDate.Location = new System.Drawing.Point(897, 167);
             this.labelDate.Name = "labelDate";
-            this.labelDate.Size = new System.Drawing.Size(116, 22);
+            this.labelDate.Size = new System.Drawing.Size(115, 24);
             this.labelDate.TabIndex = 10;
             this.labelDate.Text = "1 de Gener";
             this.labelDate.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -175,14 +175,15 @@
             // 
             this.label1.AutoSize = true;
             this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Lucida Sans", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 20.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.label1.ForeColor = System.Drawing.Color.Transparent;
             this.label1.Location = new System.Drawing.Point(256, 139);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(212, 31);
+            this.label1.Size = new System.Drawing.Size(194, 31);
             this.label1.TabIndex = 13;
             this.label1.Text = "Usuaris totals";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
+            this.label1.Click += new System.EventHandler(this.label1_Click);
             // 
             // buttonStatistics
             // 

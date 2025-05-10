@@ -1,15 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Data.Entity;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Data.Entity;
 using Cultura_BCN.Model;
 
 namespace Cultura_BCN
 {
     public class AppDbContext : DbContext
     {
+       
+        public AppDbContext() : base("name=CulturaBCNEntities") { }
+
         public DbSet<Usuarios> Usuarios { get; set; }
         public DbSet<Salas> Salas { get; set; }
         public DbSet<Eventos> Eventos { get; set; }

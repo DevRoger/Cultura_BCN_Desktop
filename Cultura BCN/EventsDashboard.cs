@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cultura_BCN.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Cultura_BCN
         public EventsDashboard()
         {
             InitializeComponent();
+            using (var context = new CulturaBCNEntities())
+            {
+                var list = context.eventos.ToList();
+                dataGridViewEvents.DataSource = list;
+            }
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -72,6 +78,11 @@ namespace Cultura_BCN
             ReservationsDashboard d = new ReservationsDashboard();
             d.Show();
             this.Hide();
+        }
+
+        private void EventsDashboard_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

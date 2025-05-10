@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8"?>
+﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
@@ -64,6 +64,12 @@
     <Compile Include="CreateEvent.Designer.cs">
       <DependentUpon>CreateEvent.cs</DependentUpon>
     </Compile>
+    <Compile Include="CreateSala.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CreateSala.Designer.cs">
+      <DependentUpon>CreateSala.cs</DependentUpon>
+    </Compile>
     <Compile Include="CreateUser.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -76,6 +82,7 @@
     <Compile Include="Dashboard.Designer.cs">
       <DependentUpon>Dashboard.cs</DependentUpon>
     </Compile>
+    <Compile Include="DTOReservations.cs" />
     <Compile Include="Eventos.cs" />
     <Compile Include="EventsDashboard.cs">
       <SubType>Form</SubType>
@@ -161,6 +168,9 @@
     <Compile Include="Usuarios.cs" />
     <EmbeddedResource Include="CreateEvent.resx">
       <DependentUpon>CreateEvent.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CreateSala.resx">
+      <DependentUpon>CreateSala.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CreateUser.resx">
       <DependentUpon>CreateUser.cs</DependentUpon>
@@ -315,6 +325,7 @@
       <LastGenOutput>ModelCulturaBCN.cs</LastGenOutput>
     </Content>
     <Content Include="Resources\Frame 4_enum.png" />
+    <None Include="Resources\Frame 6.png" />
     <Content Include="Resources\Frame4_with_enum.png" />
     <None Include="Resources\Frame 4_not_enum.png" />
   </ItemGroup>

@@ -21,6 +21,12 @@ namespace Cultura_BCN
             this.nombre = nombre;
             this.direccion = direccion;
         }
+        public Salas(int aforo, string nombre, string direccion)
+        {
+            this.aforo = aforo;
+            this.nombre = nombre;
+            this.direccion = direccion;
+        }
         public Salas() { }
     }
 }

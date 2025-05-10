@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Cultura_BCN.Model;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,11 @@ namespace Cultura_BCN
         public SalasDashboards()
         {
             InitializeComponent();
+            using (var context = new CulturaBCNEntities())
+            {
+                var list = context.salas.ToList();
+                dataGridViewSalas.DataSource = list;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -61,6 +67,18 @@ namespace Cultura_BCN
         private void buttonOff_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void SalasDashboards_Load(object sender, EventArgs e)
+        {
+
+        }
+
+        private void createSalas_Click(object sender, EventArgs e)
+        {
+            CreateSala createSala = new CreateSala();
+            createSala.Show();
+            this.Hide();
         }
     }
 }

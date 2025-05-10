@@ -75,6 +75,7 @@
             this.createSalas.Size = new System.Drawing.Size(51, 50);
             this.createSalas.TabIndex = 24;
             this.createSalas.TabStop = false;
+            this.createSalas.Click += new System.EventHandler(this.createSalas_Click);
             // 
             // deleteSalas
             // 
@@ -215,6 +216,7 @@
             this.Name = "SalasDashboards";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Users_Dashboards";
+            this.Load += new System.EventHandler(this.SalasDashboards_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteSalas)).EndInit();
