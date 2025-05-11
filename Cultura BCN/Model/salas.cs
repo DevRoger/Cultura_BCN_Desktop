@@ -14,6 +14,21 @@ namespace Cultura_BCN.Model
     
     public partial class salas
     {
+        public salas(int total, string text1, string text2)
+        {
+            this.aforo = total;
+            this.nombre = text1;
+            this.direccion = text2;
+        }
+        public salas()
+        {
+
+        }
+        public salas(int id_sala, string nombre, string direccion, int aforo) : this(aforo, nombre, direccion)
+        {
+            this.id_sala = id_sala;
+        }
+
         public int id_sala { get; set; }
         public string nombre { get; set; }
         public string direccion { get; set; }

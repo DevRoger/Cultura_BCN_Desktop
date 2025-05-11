@@ -25,5 +25,6 @@ namespace Cultura_BCN.Model
         public int edad_minima { get; set; }
         public bool enumerado { get; set; }
         public int id_sala { get; set; }
+        public string foto_url { get; set; }
     }
 }
