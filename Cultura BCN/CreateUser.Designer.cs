@@ -161,6 +161,7 @@
             this.buttonCreate.TabIndex = 37;
             this.buttonCreate.Text = "Crear";
             this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // buttonAddImage
             // 
@@ -176,6 +177,7 @@
             this.buttonAddImage.TabIndex = 38;
             this.buttonAddImage.Text = "Afegir imatge";
             this.buttonAddImage.UseVisualStyleBackColor = true;
+            this.buttonAddImage.Click += new System.EventHandler(this.buttonAddImage_Click);
             // 
             // textBoxName
             // 

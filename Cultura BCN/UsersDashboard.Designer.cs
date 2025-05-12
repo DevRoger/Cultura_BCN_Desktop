@@ -190,6 +190,7 @@
             this.editUsers.Size = new System.Drawing.Size(51, 50);
             this.editUsers.TabIndex = 42;
             this.editUsers.TabStop = false;
+            this.editUsers.Click += new System.EventHandler(this.editUsers_Click);
             // 
             // UsersDashboard
             // 

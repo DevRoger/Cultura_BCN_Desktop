@@ -25,7 +25,7 @@ namespace Cultura_BCN
                            .Where(u => u.id_usuario == reserva.id_usuario)
                            .Select(u => u.correo)
                            .FirstOrDefault();
-                    int numero = context.asientos.Where(a => a.id_asiento == reserva.id_asiento ).Select(a  => a.numero).FirstOrDefault();
+                    string numero = context.asientos.Where(a => a.id_asiento == reserva.id_asiento ).Select(a  => a.numero).FirstOrDefault();
                     listFinal.Add(new DTOReservations(reserva.id_reserva,nombre,numero,reserva.fecha_reserva));
                 }
                 dataGridViewUsers.DataSource = listFinal;

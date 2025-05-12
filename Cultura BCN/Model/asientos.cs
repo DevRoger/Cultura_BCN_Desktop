@@ -15,7 +15,7 @@ namespace Cultura_BCN.Model
     public partial class asientos
     {
         public int id_asiento { get; set; }
-        public int numero { get; set; }
+        public string numero { get; set; }
         public bool disponible { get; set; }
         public int id_evento { get; set; }
     }

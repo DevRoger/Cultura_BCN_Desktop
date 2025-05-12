@@ -15,10 +15,10 @@ namespace Cultura_BCN
 {
     public class APICalls
     {
-        private string APIurl = "http://192.168.0.16/CulturaBCN/api/";
+        private static string APIurl = "http://10.0.3.141/CulturaBCN/api/";
 
 
-        public async Task POSTuser(usuarios user, Image imagen)
+        public static async Task POSTuser(usuarios user, Image imagen)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -53,7 +53,7 @@ namespace Cultura_BCN
                 }
             }
         }
-        public async Task POSTevent(eventos even, Image imagen)
+        public static async Task POSTevent(eventos even, Image imagen)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -91,7 +91,7 @@ namespace Cultura_BCN
                 }
             }
         }
-        public async Task PUTuser(usuarios user, Image imagen)
+        public static async Task PUTuser(usuarios user, Image imagen)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -128,7 +128,7 @@ namespace Cultura_BCN
                 }
             }
         }
-        public async Task PUTevent(eventos even, Image imagen)
+        public static async Task PUTevent(eventos even, Image imagen)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -168,7 +168,7 @@ namespace Cultura_BCN
                 }
             }
         }
-        public async Task GETImage(string path, PictureBox box)
+        public static async Task GETImage(string path, PictureBox box)
         {
             using (HttpClient client = new HttpClient())
             {
@@ -187,6 +187,7 @@ namespace Cultura_BCN
                     {
                         Image img = Image.FromStream(ms);
                         box.Image = img;
+                        box.SizeMode = PictureBoxSizeMode.StretchImage;
                     }
                 }
                 else

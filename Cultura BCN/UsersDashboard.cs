@@ -80,5 +80,30 @@ namespace Cultura_BCN
         {
 
         }
+
+        private void editUsers_Click(object sender, EventArgs e)
+        {
+            List<usuarios> usuariosSeleccionados = new List<usuarios>();
+
+            foreach (DataGridViewRow row in dataGridViewUsers.SelectedRows)
+            {
+                if (row.DataBoundItem is usuarios usuario)
+                {
+                    usuariosSeleccionados.Add(usuario);
+                }
+            }
+            if (usuariosSeleccionados.Count()==0) {
+                MessageBox.Show("Has de seleccionar un usuari per poder editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }else if (usuariosSeleccionados.Count() > 1)
+            {
+                MessageBox.Show("No pots seleccionar més de un usuari per editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                CreateUser editUser = new CreateUser(usuariosSeleccionados[0]);
+                editUser.Show();
+                this.Hide();
+            }
+        }
     }
 }
