@@ -21,6 +21,7 @@ namespace Cultura_BCN
                 var list = context.eventos.ToList();
                 dataGridViewEvents.DataSource = list;
             }
+            dataGridViewEvents.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -83,6 +84,38 @@ namespace Cultura_BCN
         private void EventsDashboard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void deleteEvents_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void editEvents_Click(object sender, EventArgs e)
+        {
+            List<eventos> eventosSeleccionados = new List<eventos>();
+
+            foreach (DataGridViewRow row in dataGridViewEvents.SelectedRows)
+            {
+                if (row.DataBoundItem is eventos evento)
+                {
+                    eventosSeleccionados.Add(evento);
+                }
+            }
+            if (eventosSeleccionados.Count() == 0)
+            {
+                MessageBox.Show("Has de seleccionar un event per poder editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (eventosSeleccionados.Count() > 1)
+            {
+                MessageBox.Show("No pots seleccionar més de un event per editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                CreateEvent editEvent = new CreateEvent(eventosSeleccionados[0]);
+                editEvent.Show();
+                this.Hide();
+            }
         }
     }
 }

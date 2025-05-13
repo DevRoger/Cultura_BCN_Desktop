@@ -21,7 +21,7 @@ namespace Cultura_BCN
                 var list = context.usuarios.ToList();
                 dataGridViewUsers.DataSource = list;
             }
-
+            dataGridViewUsers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -103,6 +103,40 @@ namespace Cultura_BCN
                 CreateUser editUser = new CreateUser(usuariosSeleccionados[0]);
                 editUser.Show();
                 this.Hide();
+            }
+        }
+
+        private void deleteUsers_Click(object sender, EventArgs e)
+        {
+            List<usuarios> usuariosSeleccionados = new List<usuarios>();
+
+            foreach (DataGridViewRow row in dataGridViewUsers.SelectedRows)
+            {
+                if (row.DataBoundItem is usuarios usuario)
+                {
+                    usuariosSeleccionados.Add(usuario);
+                }
+            }
+            if (usuariosSeleccionados.Count() > 0)
+            {
+               if(MessageBox.Show("Vols eliminar les fileres seleccionades?.", "Atenció", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK){
+                    using (var context = new CulturaBCNEntities())
+                    {
+                        
+                        foreach (usuarios user in usuariosSeleccionados)
+                        {
+                            context.usuarios.Remove(context.usuarios.Find(user.id_usuario));
+                        }
+                        context.SaveChanges();
+                        var list = context.usuarios.ToList();
+                        dataGridViewUsers.DataSource = list;
+                        MessageBox.Show("El usuari ha sigut eliminat de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    }
+                }
+            }
+            else if (usuariosSeleccionados.Count() == 0)
+            {
+                MessageBox.Show("Has de seleccionar com a minim un usuari per poder eliminar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
         }
     }

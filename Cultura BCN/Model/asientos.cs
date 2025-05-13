@@ -18,5 +18,21 @@ namespace Cultura_BCN.Model
         public string numero { get; set; }
         public bool disponible { get; set; }
         public int id_evento { get; set; }
+
+
+        public asientos(int id_asiento,string numero,bool disponible,int id_evento)
+        {
+            this.id_asiento = id_asiento;
+            this.numero = numero;
+            this.disponible = disponible;
+            this.id_evento = id_evento;
+        }
+        public asientos(string numero, int id_evento)
+        {
+            disponible = false;
+            this.numero = numero;
+            this.id_evento = id_evento;
+        }
+        
     }
 }

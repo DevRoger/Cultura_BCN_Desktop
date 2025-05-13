@@ -50,6 +50,8 @@
             this.buttonCreate = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.checkBoxEnumerated = new System.Windows.Forms.CheckBox();
+            this.pictureBoxEvent = new System.Windows.Forms.PictureBox();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -57,6 +59,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOff
@@ -263,12 +266,13 @@
             this.buttonCreate.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.buttonCreate.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonCreate.ForeColor = System.Drawing.Color.White;
-            this.buttonCreate.Location = new System.Drawing.Point(397, 592);
+            this.buttonCreate.Location = new System.Drawing.Point(394, 608);
             this.buttonCreate.Name = "buttonCreate";
             this.buttonCreate.Size = new System.Drawing.Size(508, 56);
             this.buttonCreate.TabIndex = 36;
             this.buttonCreate.Text = "Crear";
             this.buttonCreate.UseVisualStyleBackColor = true;
+            this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
             // 
             // label2
             // 
@@ -291,6 +295,30 @@
             this.checkBoxEnumerated.UseVisualStyleBackColor = false;
             this.checkBoxEnumerated.CheckedChanged += new System.EventHandler(this.checkBoxEnumerated_CheckedChanged);
             // 
+            // pictureBoxEvent
+            // 
+            this.pictureBoxEvent.Location = new System.Drawing.Point(967, 401);
+            this.pictureBoxEvent.Name = "pictureBoxEvent";
+            this.pictureBoxEvent.Size = new System.Drawing.Size(213, 206);
+            this.pictureBoxEvent.TabIndex = 40;
+            this.pictureBoxEvent.TabStop = false;
+            // 
+            // button1
+            // 
+            this.button1.BackgroundImage = global::Cultura_BCN.Properties.Resources.SIGN_IN;
+            this.button1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.button1.Cursor = System.Windows.Forms.Cursors.Default;
+            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.ForeColor = System.Drawing.Color.White;
+            this.button1.Location = new System.Drawing.Point(967, 627);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(213, 43);
+            this.button1.TabIndex = 41;
+            this.button1.Text = "Afegir Imatge";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // CreateEvent
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -299,6 +327,8 @@
             this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Frame_4_not_enum;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
+            this.Controls.Add(this.button1);
+            this.Controls.Add(this.pictureBoxEvent);
             this.Controls.Add(this.checkBoxEnumerated);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.buttonCreate);
@@ -334,6 +364,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -362,5 +393,7 @@
         private System.Windows.Forms.Button buttonCreate;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.CheckBox checkBoxEnumerated;
+        private System.Windows.Forms.PictureBox pictureBoxEvent;
+        private System.Windows.Forms.Button button1;
     }
 }

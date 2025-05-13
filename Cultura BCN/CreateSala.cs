@@ -71,7 +71,7 @@ namespace Cultura_BCN
                 using (var context = new CulturaBCNEntities())
                 {
                     int total = int.Parse(textBoxTotalPeople.Text);
-                    context.salas.Add(new salas(total,textBoxName.Text,textBoxAddress.Text));
+                    context.salas.Add(new salas(textBoxName.Text,textBoxAddress.Text,total));
                     context.SaveChanges();
                     MessageBox.Show("La sala ha sigut creada de forma exitosa.","Éxit",MessageBoxButtons.OK,MessageBoxIcon.Information);
                 }

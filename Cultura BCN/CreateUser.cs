@@ -22,6 +22,7 @@ namespace Cultura_BCN
         private bool image = false;
         private bool newUser = true;
         private usuarios u;
+        private string originalPassword = null;
         public CreateUser()
         {
             InitializeComponent();
@@ -48,6 +49,7 @@ namespace Cultura_BCN
             textBoxEmail.Text = user.correo;
             textBoxPhone.Text = user.telefono;
             textBoxPassword.Text = Desencriptar(user.contrasena_hash);
+            originalPassword = textBoxPassword.Text;
             dateTimePickerDateBirth.Value = user.fecha_nacimiento;
             image = true;
             newUser = false;
@@ -230,14 +232,18 @@ namespace Cultura_BCN
             {
                 error += "Has de afegir una imatge per l'usuari.\n";
             }
-            using (var context = new CulturaBCNEntities())
+            if(originalPassword == null || originalPassword != textBoxPassword.Text)
             {
-                var objec = context.usuarios.Where(u => u.correo == textBoxEmail.Text).ToList();
-                if (objec.Count()!=0)
+                using (var context = new CulturaBCNEntities())
                 {
-                    error += "Aquest correu ja existeix.\n";
+                    var objec = context.usuarios.Where(u => u.correo == textBoxEmail.Text).ToList();
+                    if (objec.Count() != 0)
+                    {
+                        error += "Aquest correu ja existeix.\n";
+                    }
                 }
             }
+            
             return error;
         }
     }

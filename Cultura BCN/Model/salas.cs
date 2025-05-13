@@ -11,29 +11,31 @@ namespace Cultura_BCN.Model
 {
     using System;
     using System.Collections.Generic;
-    
+    using System.Windows.Forms;
+
     public partial class salas
     {
-        public salas(int aforo, string nombre, string direccion)
+        public int id_sala { get; set; }
+        public string nombre { get; set; }
+        public string direccion { get; set; }
+        public int aforo { get; set; }
+
+        public salas(int id_sala, string nombre, string direccion, int aforo)
         {
-            this.aforo = aforo;
+            this.id_sala = id_sala;
             this.nombre = nombre;
             this.direccion = direccion;
+            this.aforo = aforo;
         }
         public salas()
         {
 
         }
-        public salas(int id_sala, int aforo, string nombre, string direccion)
+        public salas (string nombre,string direccion,int aforo)
         {
-            this.aforo = aforo;
             this.nombre = nombre;
-            this.id_sala = id_sala;
             this.direccion = direccion;
+            this.aforo = aforo;
         }
-        public int id_sala { get; set; }
-        public string nombre { get; set; }
-        public string direccion { get; set; }
-        public int aforo { get; set; }
     }
 }

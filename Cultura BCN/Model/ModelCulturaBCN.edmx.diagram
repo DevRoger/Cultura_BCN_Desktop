@@ -9,7 +9,7 @@
         <EntityTypeShape EntityType="CulturaBCNModel.chats" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.eventos" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.mensajes" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
-        <EntityTypeShape EntityType="CulturaBCNModel.reservas_entradas" Width="1.5" PointX="5.25" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="CulturaBCNModel.reservas_entradas" Width="1.5" PointX="5.125" PointY="5.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.roles" Width="1.5" PointX="0.75" PointY="4" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.salas" Width="1.5" PointX="1.5" PointY="12.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.usuarios" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />

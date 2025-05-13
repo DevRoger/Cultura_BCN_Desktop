@@ -88,6 +88,7 @@ namespace Cultura_BCN
                     var response = await client.PostAsync("eventos", form);
                     if (!response.IsSuccessStatusCode)
                         throw new Exception($"Error al crear evento: {response.StatusCode}");
+                    
                 }
             }
         }
