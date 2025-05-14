@@ -100,7 +100,6 @@ namespace Cultura_BCN
                             context.SaveChanges();
                         }
                         MessageBox.Show("Les reserves han sigut eliminades de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        
                     }
                                  
                 }

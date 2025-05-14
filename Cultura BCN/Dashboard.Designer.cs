@@ -28,6 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataVisualization.Charting.ChartArea chartArea1 = new System.Windows.Forms.DataVisualization.Charting.ChartArea();
+            System.Windows.Forms.DataVisualization.Charting.Legend legend1 = new System.Windows.Forms.DataVisualization.Charting.Legend();
+            System.Windows.Forms.DataVisualization.Charting.Series series1 = new System.Windows.Forms.DataVisualization.Charting.Series();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Dashboard));
             this.buttonUsaurios = new System.Windows.Forms.PictureBox();
             this.buttonSalas = new System.Windows.Forms.PictureBox();
@@ -41,6 +44,7 @@
             this.labelTotalClients = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonStatistics = new System.Windows.Forms.PictureBox();
+            this.chartReservation = new System.Windows.Forms.DataVisualization.Charting.Chart();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
@@ -49,6 +53,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTotalClients)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReservation)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonUsaurios
@@ -196,6 +201,25 @@
             this.buttonStatistics.TabIndex = 7;
             this.buttonStatistics.TabStop = false;
             // 
+            // chartReservation
+            // 
+            this.chartReservation.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
+            this.chartReservation.BorderlineWidth = 0;
+            chartArea1.Name = "ChartArea1";
+            this.chartReservation.ChartAreas.Add(chartArea1);
+            legend1.Name = "Legend1";
+            this.chartReservation.Legends.Add(legend1);
+            this.chartReservation.Location = new System.Drawing.Point(508, 488);
+            this.chartReservation.Name = "chartReservation";
+            this.chartReservation.Palette = System.Windows.Forms.DataVisualization.Charting.ChartColorPalette.Chocolate;
+            series1.ChartArea = "ChartArea1";
+            series1.Legend = "Legend1";
+            series1.Name = "Series1";
+            this.chartReservation.Series.Add(series1);
+            this.chartReservation.Size = new System.Drawing.Size(681, 161);
+            this.chartReservation.TabIndex = 14;
+            this.chartReservation.Text = "chart1";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -203,6 +227,7 @@
             this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Desktop___Home;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
+            this.Controls.Add(this.chartReservation);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.labelTotalClients);
             this.Controls.Add(this.pictureBoxTotalClients);
@@ -230,6 +255,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTotalClients)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.chartReservation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -248,5 +274,6 @@
         private System.Windows.Forms.Label labelTotalClients;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox buttonStatistics;
+        private System.Windows.Forms.DataVisualization.Charting.Chart chartReservation;
     }
 }
