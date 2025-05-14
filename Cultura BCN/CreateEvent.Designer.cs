@@ -238,7 +238,7 @@
             // 
             // textBoxRows
             // 
-            this.textBoxRows.BackColor = System.Drawing.Color.White;
+            this.textBoxRows.BackColor = System.Drawing.Color.WhiteSmoke;
             this.textBoxRows.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.textBoxRows.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.textBoxRows.Location = new System.Drawing.Point(443, 520);

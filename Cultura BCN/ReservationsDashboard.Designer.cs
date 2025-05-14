@@ -28,6 +28,8 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ReservationsDashboard));
             this.buttonOff = new System.Windows.Forms.PictureBox();
             this.buttonStatistics = new System.Windows.Forms.PictureBox();
@@ -37,8 +39,8 @@
             this.buttonSalas = new System.Windows.Forms.PictureBox();
             this.buttonUsaurios = new System.Windows.Forms.PictureBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             this.deleteReservations = new System.Windows.Forms.PictureBox();
+            this.dataGridViewUsers = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -46,8 +48,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteReservations)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).BeginInit();
             this.SuspendLayout();
             // 
             // buttonOff
@@ -142,16 +144,6 @@
             this.textBoxSearch.Size = new System.Drawing.Size(377, 31);
             this.textBoxSearch.TabIndex = 53;
             // 
-            // dataGridViewUsers
-            // 
-            this.dataGridViewUsers.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewUsers.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewUsers.Location = new System.Drawing.Point(96, 85);
-            this.dataGridViewUsers.Name = "dataGridViewUsers";
-            this.dataGridViewUsers.Size = new System.Drawing.Size(1138, 606);
-            this.dataGridViewUsers.TabIndex = 52;
-            // 
             // deleteReservations
             // 
             this.deleteReservations.BackColor = System.Drawing.Color.Transparent;
@@ -162,6 +154,35 @@
             this.deleteReservations.Size = new System.Drawing.Size(51, 50);
             this.deleteReservations.TabIndex = 50;
             this.deleteReservations.TabStop = false;
+            this.deleteReservations.Click += new System.EventHandler(this.deleteReservations_Click);
+            // 
+            // dataGridViewUsers
+            // 
+            this.dataGridViewUsers.AllowUserToAddRows = false;
+            this.dataGridViewUsers.AllowUserToDeleteRows = false;
+            this.dataGridViewUsers.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.dataGridViewUsers.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewUsers.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewUsers.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewUsers.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewUsers.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewUsers.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewUsers.ImeMode = System.Windows.Forms.ImeMode.Hiragana;
+            this.dataGridViewUsers.Location = new System.Drawing.Point(96, 84);
+            this.dataGridViewUsers.Name = "dataGridViewUsers";
+            this.dataGridViewUsers.ReadOnly = true;
+            this.dataGridViewUsers.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewUsers.Size = new System.Drawing.Size(1138, 606);
+            this.dataGridViewUsers.TabIndex = 54;
             // 
             // ReservationsDashboard
             // 
@@ -170,8 +191,8 @@
             this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Frame_3__9_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
-            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.dataGridViewUsers);
+            this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.deleteReservations);
             this.Controls.Add(this.buttonOff);
             this.Controls.Add(this.buttonStatistics);
@@ -194,8 +215,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteReservations)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewUsers)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -211,7 +232,7 @@
         private System.Windows.Forms.PictureBox buttonSalas;
         private System.Windows.Forms.PictureBox buttonUsaurios;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.DataGridView dataGridViewUsers;
         private System.Windows.Forms.PictureBox deleteReservations;
+        private System.Windows.Forms.DataGridView dataGridViewUsers;
     }
 }

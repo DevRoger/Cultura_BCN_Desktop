@@ -80,5 +80,83 @@ namespace Cultura_BCN
             createSala.Show();
             this.Hide();
         }
+
+        private void editSalas_Click(object sender, EventArgs e)
+        {
+            List<salas> salasSeleccionados = new List<salas>();
+
+            foreach (DataGridViewRow row in dataGridViewSalas.SelectedRows)
+            {
+                if (row.DataBoundItem is salas sala)
+                {
+                    salasSeleccionados.Add(sala);
+                }
+            }
+            if (salasSeleccionados.Count() == 0)
+            {
+                MessageBox.Show("Has de seleccionar una sala per poder editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else if (salasSeleccionados.Count() > 1)
+            {
+                MessageBox.Show("No pots seleccionar més d'una sala per editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else
+            {
+                CreateSala editEvent = new CreateSala(salasSeleccionados[0]);
+                editEvent.Show();
+                this.Hide();
+            }
+        }
+
+        private void deleteSalas_Click(object sender, EventArgs e)
+        {
+            List<salas> salasSeleccionados = new List<salas>();
+
+            foreach (DataGridViewRow row in dataGridViewSalas.SelectedRows)
+            {
+                if (row.DataBoundItem is salas sala)
+                {
+                    salasSeleccionados.Add(sala);
+                }
+            }
+            if (salasSeleccionados.Count() == 0)
+            {
+                MessageBox.Show("Has de seleccionar com a minim una sala per poder eliminar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            else 
+            {
+                
+                using (var context = new CulturaBCNEntities())
+                {
+                    foreach (salas sala in salasSeleccionados)
+                    {
+                        var listEvents = context.eventos.Where(sal => sal.id_sala == sala.id_sala).ToList();
+
+                        if (listEvents.Count() > 0)
+                        {
+                            if (MessageBox.Show("Vols eliminar la sala " + sala.nombre+ "? Això eliminara els events on tenen lloc a aquestes sales.", "Atenció", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                            {
+                                foreach(eventos events in listEvents)
+                                {
+                                    context.eventos.Remove(events);
+                                }
+                                context.salas.Remove(context.salas.Find(sala.id_sala));
+                            }
+                        }
+                        else
+                        {
+                            if (MessageBox.Show("Vols eliminar la sala " + sala.nombre+ "?", "Atenció", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                            {
+                                context.salas.Remove(context.salas.Find(sala.id_sala));
+                            }
+                        }
+                    }
+                    context.SaveChanges();
+                    
+                }
+                    MessageBox.Show("No pots seleccionar més de un event per editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+            }
+            
+        }
     }
 }

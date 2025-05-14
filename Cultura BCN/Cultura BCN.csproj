@@ -311,6 +311,7 @@
     <None Include="Resources\Frame 3 %284%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\Frame_4_ocult_all.png" />
     <None Include="Resources\Frame 5 %281%29.png" />
     <None Include="Resources\Frame 5.png" />
     <None Include="Resources\Frame_4_with_enum1.png" />

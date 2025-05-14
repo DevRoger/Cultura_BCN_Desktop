@@ -6,7 +6,7 @@
     <edmx:Diagrams>
       <Diagram DiagramId="601e4a4d727049c2ae7b372e80fa8ed1" Name="Diagram1">
         <EntityTypeShape EntityType="CulturaBCNModel.asientos" Width="1.5" PointX="3" PointY="8.375" IsExpanded="true" />
-        <EntityTypeShape EntityType="CulturaBCNModel.chats" Width="1.5" PointX="5.25" PointY="3.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="CulturaBCNModel.chats" Width="1.5" PointX="5.375" PointY="3" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.eventos" Width="1.5" PointX="0.75" PointY="7.75" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.mensajes" Width="1.5" PointX="7.5" PointY="3.5" IsExpanded="true" />
         <EntityTypeShape EntityType="CulturaBCNModel.reservas_entradas" Width="1.5" PointX="5.125" PointY="5.75" IsExpanded="true" />

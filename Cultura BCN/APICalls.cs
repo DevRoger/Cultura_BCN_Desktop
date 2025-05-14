@@ -114,12 +114,14 @@ namespace Cultura_BCN
                     // Convertir imagen a bytes desde PictureBox.Image
                     using (var ms = new MemoryStream())
                     {
-                        imagen.Save(ms, ImageFormat.Jpeg); // Usa PNG si lo prefieres
-                        ms.Position = 0;
-
-                        var fileContent = new ByteArrayContent(ms.ToArray());
-                        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
-                        form.Add(fileContent, "photo", "avatar.jpg"); // nombre simulado del archivo
+                        using (Bitmap bmp = new Bitmap(imagen))
+                        {
+                            bmp.Save(ms, ImageFormat.Png);  // O ImageFormat.Jpeg si prefieres
+                            ms.Position = 0;
+                            var fileContent = new ByteArrayContent(ms.ToArray());
+                            fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                            form.Add(fileContent, "photo", "evento.png");
+                        }
                     }
 
                     // Enviar PUT
@@ -149,20 +151,22 @@ namespace Cultura_BCN
                     form.Add(new StringContent(even.lugar), "lugar");
                     form.Add(new StringContent(even.enumerado.ToString()), "enumerado");
                     form.Add(new StringContent(even.edad_minima.ToString()), "edad_minima");
-                    form.Add(new StringContent(even.precio.ToString("0.00", System.Globalization.CultureInfo.InvariantCulture)), "precio");
+                    form.Add(new StringContent(even.precio.ToString("", System.Globalization.CultureInfo.InvariantCulture)), "precio");
 
                     // Convertir imagen del PictureBox a bytes
                     using (var ms = new MemoryStream())
                     {
-                        imagen.Save(ms, ImageFormat.Jpeg); // O PNG si lo prefieres
-                        ms.Position = 0;
-
-                        var fileContent = new ByteArrayContent(ms.ToArray());
-                        fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/jpeg");
-                        form.Add(fileContent, "photo", "evento.jpg"); // nombre simulado del archivo
+                        using (Bitmap bmp = new Bitmap(imagen))
+                        {
+                            bmp.Save(ms, ImageFormat.Png);  // O ImageFormat.Jpeg si prefieres
+                            ms.Position = 0;
+                            var fileContent = new ByteArrayContent(ms.ToArray());
+                            fileContent.Headers.ContentType = new System.Net.Http.Headers.MediaTypeHeaderValue("image/png");
+                            form.Add(fileContent, "photo", "evento.png");
+                        }
                     }
 
-                    // Enviar POST
+                    // Enviar PUY
                     var response = await client.PutAsync("eventos", form);
                     if (!response.IsSuccessStatusCode)
                         throw new Exception($"Error al crear evento: {response.StatusCode}");

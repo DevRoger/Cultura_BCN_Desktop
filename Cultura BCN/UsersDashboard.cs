@@ -125,6 +125,22 @@ namespace Cultura_BCN
                         
                         foreach (usuarios user in usuariosSeleccionados)
                         {
+                            var listReserv = context.reservas_entradas.Where(r => r.id_usuario == user.id_usuario).ToList();
+                            foreach (reservas_entradas res in listReserv)
+                            {
+                                context.reservas_entradas.Remove(res);
+                            }
+                            var listChats = context.chats.Where(chat => chat.id_usuario_1 == user.id_usuario || chat.id_usuario_2 == user.id_usuario).ToList();
+
+                            foreach (chats chat in listChats)
+                            {
+                                var listMessages = context.mensajes.Where(mes => mes.id_chat == chat.id_chat).ToList();
+                                foreach (mensajes mensaje in listMessages)
+                                {
+                                    context.mensajes.Remove(mensaje);
+                                }
+                                context.chats.Remove(chat);
+                            }
                             context.usuarios.Remove(context.usuarios.Find(user.id_usuario));
                         }
                         context.SaveChanges();

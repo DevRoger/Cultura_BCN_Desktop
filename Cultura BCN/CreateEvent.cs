@@ -58,6 +58,7 @@ namespace Cultura_BCN
             textBoxColumns.Visible = false;
             textBoxRows.Visible = false;
             even = e;
+            this.BackgroundImage = Properties.Resources.Frame_4_ocult_all;
             prepareComponents();
             putDataIn();
 
@@ -231,6 +232,7 @@ namespace Cultura_BCN
 
                 evento.id_evento = even.id_evento;
                 evento.foto_url = even.foto_url;
+                evento.enumerado = even.enumerado;
                 evento.nombre = textBoxName.Text;
                 evento.descripcion = textBoxDescription.Text;
                 evento.precio = decimal.Parse(textBoxPrice.Text);
@@ -241,23 +243,13 @@ namespace Cultura_BCN
                 evento.hora_fin = dateTimePickerEnd.Value.TimeOfDay;
                 evento.fecha = dateTimePickerDate.Value;
 
-                Task a = APICalls.PUTevent(evento, pictureBoxEvent.Image);
-                if (a.IsCompleted) {
-                    MessageBox.Show("L'event ha sigut editat de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
-                else
-                {
-                    MessageBox.Show(a.Exception.ToString(), "ERROR", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                }
+                APICalls.PUTevent(evento, pictureBoxEvent.Image);
+                
                 
                 EventsDashboard eventsDashboard = new EventsDashboard();
                 eventsDashboard.Show();
                 this.Hide();
             }
-        }
-        private void deleteAsientos()
-        {
-
         }
         private string checkError()
         {

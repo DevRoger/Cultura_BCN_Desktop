@@ -28,8 +28,9 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SalasDashboards));
-            this.dataGridViewSalas = new System.Windows.Forms.DataGridView();
             this.createSalas = new System.Windows.Forms.PictureBox();
             this.deleteSalas = new System.Windows.Forms.PictureBox();
             this.editSalas = new System.Windows.Forms.PictureBox();
@@ -41,7 +42,7 @@
             this.buttonUsaurios = new System.Windows.Forms.PictureBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
             this.buttonStatistics = new System.Windows.Forms.PictureBox();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalas)).BeginInit();
+            this.dataGridViewSalas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.createSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.editSalas)).BeginInit();
@@ -52,18 +53,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalas)).BeginInit();
             this.SuspendLayout();
-            // 
-            // dataGridViewSalas
-            // 
-            this.dataGridViewSalas.BackgroundColor = System.Drawing.Color.White;
-            this.dataGridViewSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewSalas.GridColor = System.Drawing.SystemColors.Control;
-            this.dataGridViewSalas.Location = new System.Drawing.Point(96, 85);
-            this.dataGridViewSalas.Name = "dataGridViewSalas";
-            this.dataGridViewSalas.Size = new System.Drawing.Size(1138, 606);
-            this.dataGridViewSalas.TabIndex = 25;
-            this.dataGridViewSalas.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewSala_CellContentClick);
             // 
             // createSalas
             // 
@@ -87,6 +78,7 @@
             this.deleteSalas.Size = new System.Drawing.Size(51, 50);
             this.deleteSalas.TabIndex = 23;
             this.deleteSalas.TabStop = false;
+            this.deleteSalas.Click += new System.EventHandler(this.deleteSalas_Click);
             // 
             // editSalas
             // 
@@ -98,6 +90,7 @@
             this.editSalas.Size = new System.Drawing.Size(51, 50);
             this.editSalas.TabIndex = 22;
             this.editSalas.TabStop = false;
+            this.editSalas.Click += new System.EventHandler(this.editSalas_Click);
             // 
             // buttonOff
             // 
@@ -191,6 +184,33 @@
             this.buttonStatistics.TabIndex = 41;
             this.buttonStatistics.TabStop = false;
             // 
+            // dataGridViewSalas
+            // 
+            this.dataGridViewSalas.AllowUserToAddRows = false;
+            this.dataGridViewSalas.AllowUserToDeleteRows = false;
+            this.dataGridViewSalas.AllowUserToResizeColumns = false;
+            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(192)))), ((int)(((byte)(192)))));
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            this.dataGridViewSalas.AlternatingRowsDefaultCellStyle = dataGridViewCellStyle1;
+            this.dataGridViewSalas.BackgroundColor = System.Drawing.Color.White;
+            this.dataGridViewSalas.ClipboardCopyMode = System.Windows.Forms.DataGridViewClipboardCopyMode.Disable;
+            this.dataGridViewSalas.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle2.BackColor = System.Drawing.SystemColors.Window;
+            dataGridViewCellStyle2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle2.ForeColor = System.Drawing.SystemColors.ControlText;
+            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(226)))), ((int)(((byte)(82)))), ((int)(((byte)(82)))));
+            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.dataGridViewSalas.DefaultCellStyle = dataGridViewCellStyle2;
+            this.dataGridViewSalas.GridColor = System.Drawing.SystemColors.Control;
+            this.dataGridViewSalas.Location = new System.Drawing.Point(96, 85);
+            this.dataGridViewSalas.Name = "dataGridViewSalas";
+            this.dataGridViewSalas.ReadOnly = true;
+            this.dataGridViewSalas.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.dataGridViewSalas.Size = new System.Drawing.Size(1138, 606);
+            this.dataGridViewSalas.TabIndex = 47;
+            // 
             // SalasDashboards
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -198,6 +218,7 @@
             this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Frame_3__6_;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
+            this.Controls.Add(this.dataGridViewSalas);
             this.Controls.Add(this.buttonStatistics);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonOff);
@@ -206,7 +227,6 @@
             this.Controls.Add(this.buttonEvents);
             this.Controls.Add(this.buttonSalas);
             this.Controls.Add(this.buttonUsaurios);
-            this.Controls.Add(this.dataGridViewSalas);
             this.Controls.Add(this.createSalas);
             this.Controls.Add(this.deleteSalas);
             this.Controls.Add(this.editSalas);
@@ -217,7 +237,6 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Users_Dashboards";
             this.Load += new System.EventHandler(this.SalasDashboards_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.createSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.editSalas)).EndInit();
@@ -228,14 +247,13 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.DataGridView dataGridViewSalas;
         private System.Windows.Forms.PictureBox createSalas;
         private System.Windows.Forms.PictureBox deleteSalas;
         private System.Windows.Forms.PictureBox editSalas;
@@ -247,5 +265,6 @@
         private System.Windows.Forms.PictureBox buttonUsaurios;
         private System.Windows.Forms.TextBox textBoxSearch;
         private System.Windows.Forms.PictureBox buttonStatistics;
+        private System.Windows.Forms.DataGridView dataGridViewSalas;
     }
 }

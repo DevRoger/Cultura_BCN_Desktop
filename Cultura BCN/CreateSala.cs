@@ -3,6 +3,8 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Data.Entity;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,9 +16,19 @@ namespace Cultura_BCN
 {
     public partial class CreateSala : Form
     {
+        private salas sala;
         public CreateSala()
         {
             InitializeComponent();
+        }
+        public CreateSala(salas sala)
+        {
+            InitializeComponent();
+            this.sala = sala;
+            textBoxAddress.Text = sala.direccion;
+            textBoxTotalPeople.Text = sala.aforo.ToString();
+            textBoxName.Text = sala.nombre;
+            buttonCreate.Text = "Actualitzar";
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -66,7 +78,7 @@ namespace Cultura_BCN
             {
                 MessageBox.Show(error,"ERROR",MessageBoxButtons.OK,MessageBoxIcon.Error);
             }
-            else
+            else if (sala == null)
             {
                 using (var context = new CulturaBCNEntities())
                 {
@@ -78,6 +90,22 @@ namespace Cultura_BCN
                 textBoxAddress.Clear();
                 textBoxName.Clear();
                 textBoxTotalPeople.Clear();
+                SalasDashboards salasDashboards = new SalasDashboards();
+                salasDashboards.Show();
+                this.Hide();
+            }
+            else
+            {
+                using (var context = new CulturaBCNEntities())
+                {
+                    var salaOriginal = context.salas.Find(sala.id_sala);
+                    salaOriginal.nombre = textBoxName.Text;
+                    salaOriginal.direccion = textBoxAddress.Text;
+                    salaOriginal.aforo = int.Parse(textBoxTotalPeople.Text);
+                    context.Entry(salaOriginal).State = EntityState.Modified;
+                    context.SaveChangesAsync();
+                }
+                MessageBox.Show("La sala ha sigut actualitzada de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 SalasDashboards salasDashboards = new SalasDashboards();
                 salasDashboards.Show();
                 this.Hide();

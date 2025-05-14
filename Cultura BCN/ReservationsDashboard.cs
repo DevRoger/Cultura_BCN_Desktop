@@ -20,7 +20,7 @@ namespace Cultura_BCN
             {
                 var listFinal = new List<DTOReservations>();
                 var list = context.reservas_entradas.ToList();
-                foreach(Cultura_BCN.Model.reservas_entradas  reserva in list){
+                foreach(reservas_entradas  reserva in list){
                     string nombre = context.usuarios
                            .Where(u => u.id_usuario == reserva.id_usuario)
                            .Select(u => u.correo)
@@ -73,6 +73,41 @@ namespace Cultura_BCN
         private void ReservationsDashboard_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void deleteReservations_Click(object sender, EventArgs e)
+        {
+            List<reservas_entradas> reservasSeleccionados = new List<reservas_entradas>();
+
+            foreach (DataGridViewRow row in dataGridViewUsers.SelectedRows)
+            {
+
+                using (var context = new CulturaBCNEntities())
+                {
+                    reservasSeleccionados.Add(context.reservas_entradas.Find(row.Cells[0].Value));
+                }
+            }
+                if (reservasSeleccionados.Count()> 0)
+                {
+                    if (MessageBox.Show("Vols eliminar les fileres seleccionades?.", "Atenció", MessageBoxButtons.OKCancel, MessageBoxIcon.Warning) == DialogResult.OK)
+                    {
+                        using (var context = new CulturaBCNEntities())
+                        {
+                            foreach (reservas_entradas res in reservasSeleccionados)
+                            {
+                                context.reservas_entradas.Remove(context.reservas_entradas.Find(res.id_reserva));
+                            }
+                            context.SaveChanges();
+                        }
+                        MessageBox.Show("Les reserves han sigut eliminades de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        
+                    }
+                                 
+                }
+                else
+                {
+                    MessageBox.Show("Has de seleccionar com a minim una reserva per poder eliminar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+                }
         }
     }
 }
