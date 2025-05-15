@@ -18,6 +18,10 @@ namespace Cultura_BCN
     public partial class Dashboard : Form
     {
         private string timeHoure;
+        private List<PanelUsers> listPanelUsers;
+        private List<PanelEvents> listPanelEvents;
+        private int pageUser = 0;
+        private int pageEvents = 0;
         public Dashboard()
         {
             InitializeComponent();
@@ -52,10 +56,65 @@ namespace Cultura_BCN
             area.BackColor = Color.Transparent;
             area.AxisX.MajorGrid.LineWidth = 0;
             area.AxisY.MajorGrid.LineWidth = 0;
+            
+            List<usuarios> listUsers = new List<usuarios>();
+            List<eventos> listEvents = new List<eventos>();
+            DateTime dateTime = DateTime.Now;
+            using (var context = new CulturaBCNEntities())
+            {
+                listEvents = context.eventos.OrderByDescending(u => u.id_evento).Take(3).ToList();
+                listUsers =  context.usuarios.OrderByDescending(u => u.id_usuario).Take(3).ToList();
+            }
 
+            listPanelEvents.Add(new PanelEvents(pictureBoxEvent1,pictureBoxEventFoto1,labelNomEvent1,labelTitleHora1,labelHora1, labelTitleData1, labelData1,labelTitleEntrades1,labelEntrades1));
+            listPanelEvents.Add(new PanelEvents(pictureBoxEvent2, pictureBoxEventFoto2, labelNomEvent2, labelTitleHora2, labelHora2, labelTitleData2, labelData2, labelTitleEntrades2, labelEntrades2));
+            listPanelEvents.Add(new PanelEvents(pictureBoxEvent3, pictureBoxEventFoto3, labelNomEvent3, labelTitleHora3, labelHora3, labelTitleData3, labelData3, labelTitleEntrades3, labelEntrades3));
 
+            listPanelUsers.Add(new PanelUsers(pictureBoxUsuaris1, pictureBoxUsuarisFoto1, labelNomUsuari1, labelTilteCorreu1,labelCorreu1,labelTitleTelefon1, labelTelefon1, labelTitleEdad1,labelEdad1));
+            listPanelUsers.Add(new PanelUsers(
+                                                pictureBoxUsuaris2, pictureBoxUsuarisFoto2, labelNomUsuari2,
+                                                labelTilteCorreu2, labelCorreu2,
+                                                labelTitleTelefon2, labelTelefon2,
+                                                labelTitleEdad2, labelEdad2));
 
+            listPanelUsers.Add(new PanelUsers(
+                                                            pictureBoxUsuaris3, pictureBoxUsuarisFoto3, labelNomUsuari3,
+                                                            labelTilteCorreu3, labelCorreu3,
+                                                            labelTitleTelefon3, labelTelefon3,
+                                                            labelTitleEdad3, labelEdad3));
+
+            for (int i = 0; i < listPanelUsers.Count; i++)
+            {
+                listPanelUsers[i].setData(listUsers[i]);
+            }
+            for (int i = 0; i < listPanelEvents.Count; i++)
+            {
+                listPanelEvents[i].Update(listEvents[i]);
+            }
+
+            Thread threadUpdateData = new Thread(() =>
+            {
+                while (true)
+                {
+                    using (var context = new CulturaBCNEntities())
+                    {
+                        listEvents = context.eventos.OrderByDescending(u => u.id_evento).Take(3).ToList();
+                        listUsers = context.usuarios.OrderByDescending(u => u.id_usuario).Take(3).ToList();
+                    }
+                    for (int i = 0; i < listPanelUsers.Count; i++)
+                    {
+                        listPanelUsers[i].setData(listUsers[i]);
+                    }
+                    for (int i = 0; i < listPanelEvents.Count; i++)
+                    {
+                        listPanelEvents[i].Update(listEvents[i]);
+                    }
+
+                    Thread.Sleep(6000);
+                }
+            });
             threadTime.Start();
+            threadUpdateData.Start();
 
         }
         private void setDataInChart(List<DayResults> list)

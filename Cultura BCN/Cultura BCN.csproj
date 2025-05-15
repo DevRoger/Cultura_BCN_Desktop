@@ -148,6 +148,8 @@
     <Compile Include="Model\usuarios.cs">
       <DependentUpon>ModelCulturaBCN.tt</DependentUpon>
     </Compile>
+    <Compile Include="PanelEvents.cs" />
+    <Compile Include="PanelUsers.cs" />
     <Compile Include="Pegi.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -313,6 +315,9 @@
     <None Include="Resources\Frame 3 %284%29.png" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Resources\white_panel_red_.png" />
+    <None Include="Resources\white_panel_red.png" />
+    <None Include="Resources\white_panel.png" />
     <None Include="Resources\Frame_4_ocult_all.png" />
     <None Include="Resources\Frame 5 %281%29.png" />
     <None Include="Resources\Frame 5.png" />

@@ -163,6 +163,9 @@
   <data name="Frame 4" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame 4.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="white_panel_red" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\white_panel_red.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="Desktop - Home" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Desktop - Home.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -187,6 +190,9 @@
   <data name="Group 91" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Group 91.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
+  <data name="Frame 3 (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Frame 3 (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
   <data name="image 28" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image 28.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
@@ -198,6 +204,9 @@
   </data>
   <data name="Group 44" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Group 44.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  </data>
+  <data name="Frame_4_ocult_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\Frame_4_ocult_all.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="image 29" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\image 29.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -214,8 +223,8 @@
   <data name="Frame 6" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame 6.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Frame 3 (6)" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Frame 3 (6).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="white_panel" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\white_panel.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
   <data name="Frame_4_with_enum" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame_4_with_enum1.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
@@ -223,7 +232,7 @@
   <data name="Frame 3 (1)" type="System.Resources.ResXFileRef, System.Windows.Forms">
     <value>..\Resources\Frame 3 (1).png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
-  <data name="Frame_4_ocult_all" type="System.Resources.ResXFileRef, System.Windows.Forms">
-    <value>..\Resources\Frame_4_ocult_all.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
+  <data name="white_panel_red_" type="System.Resources.ResXFileRef, System.Windows.Forms">
+    <value>..\Resources\white_panel_red_.png;System.Drawing.Bitmap, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a</value>
   </data>
 </root>
