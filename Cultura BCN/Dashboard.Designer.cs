@@ -993,6 +993,8 @@
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Dashboard";
             this.Load += new System.EventHandler(this.Dashboard_Load);
+            this.Shown += new System.EventHandler(this.Dashboard_Shown);
+            this.Leave += new System.EventHandler(this.Dashboard_Leave);
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();

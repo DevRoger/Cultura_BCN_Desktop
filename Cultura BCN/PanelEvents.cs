@@ -59,7 +59,7 @@ namespace Cultura_BCN
             APICalls.GETImage(evento.foto_url, this.avatar);
             titleEventName.Text = evento.nombre;
             valueEntrades.Text = generateTotalEntradas(evento);
-            valueDate.Text = evento.fecha.ToString();
+            valueDate.Text = evento.fecha.ToString("dd/MM/yyyy");
             valueTime.Text = evento.hora_inicio.ToString() + " - " + evento.hora_fin.ToString();
         }
         public string generateTotalEntradas(eventos evento)
@@ -71,7 +71,7 @@ namespace Cultura_BCN
 
                 var totalAsientos = context.asientos.Where(a => a.id_evento == even.id_evento).ToList();
 
-                var totalSold = context.asientos.Where(a => a.id_evento == even.id_evento || a.disponible == false).ToList();
+                var totalSold = context.asientos.Where(a => a.id_evento == even.id_evento && a.disponible == false).ToList();
 
                 txt = totalSold.Count() + "/" + totalAsientos.Count();
             }

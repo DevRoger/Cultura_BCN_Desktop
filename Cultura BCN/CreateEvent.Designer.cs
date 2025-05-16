@@ -225,6 +225,7 @@
             this.textBoxPrice.Name = "textBoxPrice";
             this.textBoxPrice.Size = new System.Drawing.Size(311, 22);
             this.textBoxPrice.TabIndex = 32;
+            this.textBoxPrice.Leave += new System.EventHandler(this.textBoxPrice_Leave);
             // 
             // textBoxCapacity
             // 

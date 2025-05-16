@@ -59,10 +59,11 @@ namespace Cultura_BCN
         public void setData(usuarios users)
         {
             APICalls.GETImage(users.foto_url,this.avatar);
+            titleUserName.Text = users.nombre + " " + users.apellidos;
             valueEmail.Text = users.correo;
             valueTele.Text = users.telefono;
-            titleAge.Visible = true;
-            valueAge.Visible = true;
+            int edad = DateTime.Now.Year - users.fecha_nacimiento.Year;
+            valueAge.Text = edad.ToString();
         }
 
     }

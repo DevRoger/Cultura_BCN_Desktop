@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.Entity.Core.Common.CommandTrees.ExpressionBuilder;
 using System.Diagnostics;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Resources;
 using System.Runtime.Remoting.Contexts;
@@ -177,13 +178,13 @@ namespace Cultura_BCN
 
                 evento.nombre = textBoxName.Text;
                 evento.descripcion = textBoxDescription.Text;
-                evento.precio = decimal.Parse(textBoxPrice.Text);
+                evento.precio = decimal.Parse(textBoxPrice.Text, new CultureInfo("es-ES"));
                 evento.id_sala = int.Parse(comboBoxPlace.SelectedValue.ToString());
                 evento.lugar = comboBoxPlace.Text;
                 evento.edad_minima = int.Parse(comboBoxAge.SelectedValue.ToString());
                 evento.enumerado = checkBoxEnumerated.Checked;
-                evento.hora_inicio = dateTimePickerStart.Value.TimeOfDay;
-                evento.hora_fin = dateTimePickerEnd.Value.TimeOfDay;
+                evento.hora_inicio = new TimeSpan(dateTimePickerStart.Value.Hour, dateTimePickerStart.Value.Minute, 0);
+                evento.hora_fin = new TimeSpan(dateTimePickerEnd.Value.Hour, dateTimePickerEnd.Value.Minute, 0);
                 evento.fecha = dateTimePickerDate.Value;
 
                 APICalls.POSTevent(evento, pictureBoxEvent.Image);
@@ -235,12 +236,15 @@ namespace Cultura_BCN
                 evento.enumerado = even.enumerado;
                 evento.nombre = textBoxName.Text;
                 evento.descripcion = textBoxDescription.Text;
-                evento.precio = decimal.Parse(textBoxPrice.Text);
+                string txt = textBoxPrice.Text.Replace(",", ".");
+                decimal precio = decimal.Parse(txt, CultureInfo.InvariantCulture);
+                MessageBox.Show("Precio que se va a guardar: " + precio);
+                evento.precio = precio;
                 evento.id_sala = int.Parse(comboBoxPlace.SelectedValue.ToString());
                 evento.lugar = comboBoxPlace.Text;
                 evento.edad_minima = int.Parse(comboBoxAge.SelectedValue.ToString());
-                evento.hora_inicio = dateTimePickerStart.Value.TimeOfDay;
-                evento.hora_fin = dateTimePickerEnd.Value.TimeOfDay;
+                evento.hora_inicio = new TimeSpan(dateTimePickerStart.Value.Hour, dateTimePickerStart.Value.Minute, 0);
+                evento.hora_fin = new TimeSpan(dateTimePickerEnd.Value.Hour, dateTimePickerEnd.Value.Minute, 0);
                 evento.fecha = dateTimePickerDate.Value;
 
                 APICalls.PUTevent(evento, pictureBoxEvent.Image);
@@ -300,6 +304,13 @@ namespace Cultura_BCN
             
             return error;
         }
-        
+
+        private void textBoxPrice_Leave(object sender, EventArgs e)
+        {
+            if (decimal.TryParse(textBoxPrice.Text, NumberStyles.Number, new CultureInfo("es-ES"), out decimal precio))
+            {
+                textBoxPrice.Text = precio.ToString("N2", new CultureInfo("es-ES"));
+            }
+        }
     }
 }
