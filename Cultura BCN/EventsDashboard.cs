@@ -13,7 +13,8 @@ namespace Cultura_BCN
 {
     public partial class EventsDashboard : Form
     {
-        public EventsDashboard()
+        private usuarios users;
+        public EventsDashboard(usuarios user)
         {
             InitializeComponent();
             using (var context = new CulturaBCNEntities())
@@ -22,6 +23,11 @@ namespace Cultura_BCN
                 dataGridViewEvents.DataSource = list;
             }
             dataGridViewEvents.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            this.users = user;
+            if (users.id_rol == 1) {
+                deleteEvents.Visible = false;
+            }
+           
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -31,7 +37,7 @@ namespace Cultura_BCN
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Dashboard d = new Dashboard();
+            Dashboard d = new Dashboard(this.users);
             d.Show();
             this.Hide();
         }
@@ -43,40 +49,46 @@ namespace Cultura_BCN
 
         private void textBoxEmail_TextChanged(object sender, EventArgs e)
         {
-
+            string text = textBoxEmail.Text;
+            List<eventos> listEvent = new List<eventos>();
+            using (var context = new CulturaBCNEntities())
+            {
+                listEvent = context.eventos.Where(ev => ev.nombre.StartsWith(text)).ToList();
+            }
+            dataGridViewEvents.DataSource= listEvent;
         }
 
         private void pictureBox4_Click(object sender, EventArgs e)
         {
-            CreateEvent c = new CreateEvent();
+            CreateEvent c = new CreateEvent(this.users);
             c.Show();
             this.Hide();
         }
 
         private void buttonUsaurios_Click(object sender, EventArgs e)
         {
-            UsersDashboard d = new UsersDashboard();
+            UsersDashboard d = new UsersDashboard(this.users);
             d.Show();
             this.Hide();
         }
 
         private void buttonSalas_Click(object sender, EventArgs e)
         {
-            SalasDashboards d = new SalasDashboards();
+            SalasDashboards d = new SalasDashboards(this.users);
             d.Show();
             this.Hide();
         }
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard d = new EventsDashboard();
+            EventsDashboard d = new EventsDashboard(this.users);
             d.Show();
             this.Hide();
         }
 
         private void buttonBockings_Click(object sender, EventArgs e)
         {
-            ReservationsDashboard d = new ReservationsDashboard();
+            ReservationsDashboard d = new ReservationsDashboard(this.users);
             d.Show();
             this.Hide();
         }
@@ -152,7 +164,7 @@ namespace Cultura_BCN
             }
             else
             {
-                CreateEvent editEvent = new CreateEvent(eventosSeleccionados[0]);
+                CreateEvent editEvent = new CreateEvent(eventosSeleccionados[0],this.users);
                 editEvent.Show();
                 this.Hide();
             }

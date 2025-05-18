@@ -18,13 +18,16 @@ namespace Cultura_BCN
     public partial class Dashboard : Form
     {
         private string timeHoure;
+        private usuarios users;
         private List<PanelUsers> listPanelUsers = new List<PanelUsers>();
         private List<PanelEvents> listPanelEvents = new List<PanelEvents>();
-        private int pageUser = 0;
-        private int pageEvents = 0;
-        public Dashboard()
+        private int pageEvents = 1;
+        private Thread threadEvents;
+        private bool stopThread = false;    
+        public Dashboard(usuarios user)
         {
             InitializeComponent();
+            this.users = user;
             string date = DateTime.Now.ToString("d MMMM yyyy", new CultureInfo("ca-ES"));
             labelDate.Text = date;
             timeHoure = DateTime.Now.ToString("HH:mm");
@@ -36,10 +39,13 @@ namespace Cultura_BCN
                     string newDate = DateTime.Now.ToString("HH:mm");
                     if (newDate != timeHoure) { 
                         timeHoure = newDate;
-                        timeClock.Invoke(new Action(() =>
+                        if (timeClock.IsHandleCreated && !timeClock.IsDisposed)
                         {
-                            timeClock.Text = timeHoure;
-                        }));
+                            timeClock.BeginInvoke(new Action(() =>
+                            {
+                                timeClock.Text = timeHoure;
+                            }));
+                        }
                     }
                     Thread.Sleep(1000); 
                 }
@@ -130,14 +136,14 @@ namespace Cultura_BCN
 
         private void pictureBox2_Click(object sender, EventArgs e)
         {
-            UsersDashboard usersDashboard = new UsersDashboard();
+            UsersDashboard usersDashboard = new UsersDashboard(this.users);
             usersDashboard.Show();
             this.Hide();
         }
 
         private void pictureBox5_Click(object sender, EventArgs e)
         {
-            ReservationsDashboard reservationsDashboard = new ReservationsDashboard();
+            ReservationsDashboard reservationsDashboard = new ReservationsDashboard(this.users);
             reservationsDashboard.Show();
             this.Hide();
         }
@@ -154,14 +160,14 @@ namespace Cultura_BCN
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard f = new EventsDashboard();
+            EventsDashboard f = new EventsDashboard(this.users);
             f.Show();
             this.Hide();
         }
 
         private void buttonSalas_Click(object sender, EventArgs e)
         {
-            SalasDashboards salasDashboards = new SalasDashboards();
+            SalasDashboards salasDashboards = new SalasDashboards(this.users);
             salasDashboards.Show();
             this.Hide();
         }
@@ -180,10 +186,13 @@ namespace Cultura_BCN
         {
             List<usuarios> listUsers = new List<usuarios>();
             List<eventos> listEvents = new List<eventos>();
-            DateTime dateTime = DateTime.Now;
+            DateTime dateTime = monthCalendar.SelectionStart;
             using (var context = new CulturaBCNEntities())
             {
-                listEvents = context.eventos.OrderByDescending(u => u.id_evento).Take(3).ToList();
+                listEvents = context.eventos.OrderByDescending(u => u.id_evento).Where(ev =>
+                                                                                            ev.fecha.Day == dateTime.Day &&
+                                                                                            ev.fecha.Month == dateTime.Month &&
+                                                                                            ev.fecha.Year == dateTime.Year).ToList();
                 listUsers = context.usuarios.OrderByDescending(u => u.id_usuario).Take(3).ToList();
             }
 
@@ -208,20 +217,209 @@ namespace Cultura_BCN
             listPanelUsers.Add(u2);
 
             listPanelUsers.Add(u3);
-
+            labelNotEvents.Visible = false;
             for (int i = 0; i < listPanelUsers.Count; i++)
             {
                 listPanelUsers[i].setData(listUsers[i]);
             }
-            for (int i = 0; i < listPanelEvents.Count; i++)
+            if(listEvents.Count == 0)
             {
-                listPanelEvents[i].Update(listEvents[i]);
+                listPanelEvents[0].Hide();
+                listPanelEvents[1].Hide();
+                listPanelEvents[2].Hide();
+                labelNotEvents.Visible = true;
+            }
+            else
+            {
+                listPanelEvents[0].Show();
+                listPanelEvents[1].Show();
+                listPanelEvents[2].Show();
+                labelNotEvents.Visible = false;
+            }
+            if (listEvents.Count <= 3)
+            {
+                int index= 0;
+                for (int i = 0; i< listEvents.Count; i++)
+                {
+                    listPanelEvents[i].Update(listEvents[i]);
+                    index = i;
+                }
+                while (index < 3)
+                {
+                    listPanelEvents[index].Hide();
+                    index++;
+                }
+            }
+            else
+            {
+                threadEvents = new Thread(() =>
+                {
+                    List<eventos> list = new List<eventos>();
+                    while (!this.stopThread)
+                    {
+                        listPanelEvents[0].Show();
+                        listPanelEvents[1].Show();
+                        listPanelEvents[2].Show();
+                        DateTime dateSelected = monthCalendar.SelectionStart;
+                        using (var context = new CulturaBCNEntities())
+                        {
+                            list = context.eventos.OrderByDescending(u => u.id_evento).Where(ev =>
+                                                                                                    ev.fecha.Day == dateTime.Day &&
+                                                                                                    ev.fecha.Month == dateTime.Month &&
+                                                                                                    ev.fecha.Year == dateTime.Year).ToList();
+                        }
+
+                        if (pageEvents * 3 <= list.Count)
+                        {
+                            int index = 0;
+                            for (int i = pageEvents * 3 - 3; i < pageEvents * 3; i++)
+                            {
+                                if (i >= list.Count)
+                                {
+                                    listPanelEvents[index].Hide();
+                                }
+                                else
+                                {
+                                    listPanelEvents[index].Update(list[i]);
+                                }
+                                index++;
+                            }
+                        }
+                        else
+                        {
+                            pageEvents = 1;
+                            for (int i = pageEvents * 3 - 3; i < pageEvents * 3; i++)
+                            {
+                                if (i >= listEvents.Count)
+                                {
+                                    listPanelEvents[i].Hide();
+                                }
+                                else
+                                {
+                                    listPanelEvents[i].Update(listEvents[i]);
+                                }
+                            }
+                        }
+                        Thread.Sleep(6000);
+                    }
+                    
+                });
+                this.threadEvents.Start();
             }
         }
 
         private void Dashboard_Leave(object sender, EventArgs e)
         {
             
+        }
+
+        private void monthCalendar_DateSelected(object sender, DateRangeEventArgs e)
+        {
+
+            if (threadEvents != null && threadEvents.IsAlive)
+            {
+                stopThread = true;
+                threadEvents.Abort();
+            }
+            this.pageEvents = 1;
+            this.stopThread = false;
+            DateTime dateTime = monthCalendar.SelectionStart;
+            List<eventos> listEvents = new List<eventos>();
+
+            using (var context = new CulturaBCNEntities())
+            {
+                listEvents = context.eventos.OrderByDescending(u => u.id_evento).Where(ev =>
+                                                                                                ev.fecha.Day == dateTime.Day &&
+                                                                                                ev.fecha.Month == dateTime.Month &&
+                                                                                                ev.fecha.Year == dateTime.Year).ToList();
+            }
+
+            if (listEvents.Count == 0)
+            {
+                listPanelEvents[0].Hide();
+                listPanelEvents[1].Hide();
+                listPanelEvents[2].Hide();
+                labelNotEvents.Visible = true;
+            }
+            else
+            {
+                listPanelEvents[0].Show();
+                listPanelEvents[1].Show();
+                listPanelEvents[2].Show();
+                labelNotEvents.Visible = false;
+            }
+            if (listEvents.Count <= 3)
+            {
+                int index = 0;
+                for (int i = 0; i < listEvents.Count; i++)
+                {
+                    listPanelEvents[i].Update(listEvents[i]);
+                    index = i;
+                }
+                while (index < 3)
+                {
+                    listPanelEvents[index].Hide();
+                    index++;
+                }
+            }
+            else
+            {
+                threadEvents = new Thread(() =>
+                {
+                    List<eventos> list = new List<eventos>();
+                    while (!this.stopThread)
+                    {
+                        listPanelEvents[0].Show();
+                        listPanelEvents[1].Show();
+                        listPanelEvents[2].Show();
+                        DateTime dateSelected = monthCalendar.SelectionStart;
+                        using (var context = new CulturaBCNEntities())
+                        {
+                            list = context.eventos.OrderByDescending(u => u.id_evento).Where(ev =>
+                                                                                                    ev.fecha.Day == dateTime.Day &&
+                                                                                                    ev.fecha.Month == dateTime.Month &&
+                                                                                                    ev.fecha.Year == dateTime.Year).ToList();
+                        }
+
+                        if (pageEvents <= (int)Math.Ceiling((double)list.Count / 3))
+                        {
+                            int index = 0;
+                            for (int i = pageEvents * 3 - 3; i < pageEvents * 3; i++)
+                            {
+                                if (i >= list.Count)
+                                {
+                                    listPanelEvents[index].Hide();
+                                }
+                                else
+                                {
+                                    listPanelEvents[index].Update(list[i]);
+                                }
+                                index++;
+                            }
+                        }
+                        else
+                        {
+                            pageEvents = 1;
+                            for (int i = pageEvents * 3 - 3; i < pageEvents * 3; i++)
+                            {
+                                if (i >= listEvents.Count)
+                                {
+                                    listPanelEvents[i].Hide();
+                                }
+                                else
+                                {
+                                    listPanelEvents[i].Update(listEvents[i]);
+                                }
+                            }
+                        }
+                        pageEvents++;
+                        Thread.Sleep(6000);
+                    }
+
+                });
+                this.threadEvents.Start();
+
+            }
         }
     }
 }

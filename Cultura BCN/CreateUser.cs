@@ -21,9 +21,10 @@ namespace Cultura_BCN
         private static string clave = "1234567890123456";
         private bool image = false;
         private bool newUser = true;
+        private usuarios user;
         private usuarios u;
         private string originalPassword = null;
-        public CreateUser()
+        public CreateUser(usuarios user)
         {
             InitializeComponent();
             using (var context = new CulturaBCNEntities())
@@ -34,8 +35,9 @@ namespace Cultura_BCN
                 comboBoxRol.ValueMember = "id_rol";
             }
 
+            this.user = user;
         }
-        public CreateUser(usuarios user) { 
+        public CreateUser(usuarios user,usuarios user1) { 
             InitializeComponent();
             using (var context = new CulturaBCNEntities())
             {
@@ -54,40 +56,42 @@ namespace Cultura_BCN
             image = true;
             newUser = false;
             u = user;
+            buttonCreate.Text = "Actualitzar";
             APICalls.GETImage(user.foto_url, pictureBoxAvatar);
+            this.user = user1;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
+            Dashboard dashboard = new Dashboard(this.user);
             dashboard.Show();
             this.Hide();
         }
 
         private void buttonUsaurios_Click(object sender, EventArgs e)
         {
-            UsersDashboard usersDashboard = new UsersDashboard();
+            UsersDashboard usersDashboard = new UsersDashboard(this.user);
             usersDashboard.Show();
             this.Hide();
         }
 
         private void buttonSalas_Click(object sender, EventArgs e)
         {
-            SalasDashboards dashboards = new SalasDashboards();
+            SalasDashboards dashboards = new SalasDashboards(this.user);
             dashboards.Show();
             this.Hide();
         }
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard eventsDashboard = new EventsDashboard();
+            EventsDashboard eventsDashboard = new EventsDashboard(this.user);
             eventsDashboard.Show();
             this.Hide();
         }
 
         private void buttonBockings_Click(object sender, EventArgs e)
         {
-            ReservationsDashboard reservationsDashboard = new ReservationsDashboard();
+            ReservationsDashboard reservationsDashboard = new ReservationsDashboard(this.user);
             reservationsDashboard.Show();
             this.Hide();
         }
@@ -180,7 +184,7 @@ namespace Cultura_BCN
 
                 MessageBox.Show("El usuari ha sigut creat de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                UsersDashboard usersDashboard = new UsersDashboard();
+                UsersDashboard usersDashboard = new UsersDashboard(this.user);
                 usersDashboard.Show();
                 this.Hide();
 
@@ -199,7 +203,7 @@ namespace Cultura_BCN
 
                 MessageBox.Show("El usuari ha sigut editat de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
-                UsersDashboard usersDashboard = new UsersDashboard();
+                UsersDashboard usersDashboard = new UsersDashboard(this.user);
                 usersDashboard.Show();
                 this.Hide();
             }

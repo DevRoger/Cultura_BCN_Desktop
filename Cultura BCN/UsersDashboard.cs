@@ -13,7 +13,8 @@ namespace Cultura_BCN
 {
     public partial class UsersDashboard : Form
     {
-        public UsersDashboard()
+        private usuarios users;
+        public UsersDashboard(usuarios users)
         {
             InitializeComponent();
             using (var context = new CulturaBCNEntities())
@@ -22,6 +23,11 @@ namespace Cultura_BCN
                 dataGridViewUsers.DataSource = list;
             }
             dataGridViewUsers.CellBorderStyle = DataGridViewCellBorderStyle.SingleHorizontal;
+            this.users = users;
+            if (users.id_rol == 1)
+            {
+                deleteUsers.Visible = false;
+            }
         }
 
         private void Users_Load(object sender, EventArgs e)
@@ -31,35 +37,35 @@ namespace Cultura_BCN
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
+            Dashboard dashboard = new Dashboard(this.users);
             dashboard.Show();
             this.Hide();
         }
 
         private void buttonUsaurios_Click(object sender, EventArgs e)
         {
-            UsersDashboard dashboard = new UsersDashboard();
+            UsersDashboard dashboard = new UsersDashboard(this.users);
             dashboard.Show();
             this.Hide();
         }
 
         private void buttonSalas_Click(object sender, EventArgs e)
         {
-            SalasDashboards dashboards = new SalasDashboards();
+            SalasDashboards dashboards = new SalasDashboards(this.users);
             dashboards.Show();
             this.Hide();
         }
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard dashboard = new EventsDashboard();
+            EventsDashboard dashboard = new EventsDashboard(this.users);
             dashboard.Show();
             this.Hide();
         }
 
         private void buttonBockings_Click(object sender, EventArgs e)
         {
-            ReservationsDashboard dashboard = new ReservationsDashboard();
+            ReservationsDashboard dashboard = new ReservationsDashboard(this.users);
             dashboard.Show();
             this.Hide();
         }
@@ -71,7 +77,7 @@ namespace Cultura_BCN
 
         private void createUsers_Click(object sender, EventArgs e)
         {
-            CreateUser createUser = new CreateUser();
+            CreateUser createUser = new CreateUser(this.users);
             createUser.Show();
             this.Hide();
         }
@@ -100,7 +106,7 @@ namespace Cultura_BCN
             }
             else
             {
-                CreateUser editUser = new CreateUser(usuariosSeleccionados[0]);
+                CreateUser editUser = new CreateUser(usuariosSeleccionados[0],this.users);
                 editUser.Show();
                 this.Hide();
             }
@@ -154,6 +160,17 @@ namespace Cultura_BCN
             {
                 MessageBox.Show("Has de seleccionar com a minim un usuari per poder eliminar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxSearch.Text;
+            List<usuarios> list = new List<usuarios>();
+            using (var context = new CulturaBCNEntities())
+            {
+                list = context.usuarios.Where(u => u.correo.StartsWith(text)).ToList();
+            }
+            dataGridViewUsers.DataSource = list;
         }
     }
 }

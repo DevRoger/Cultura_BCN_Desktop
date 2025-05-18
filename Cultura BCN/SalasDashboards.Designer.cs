@@ -41,7 +41,6 @@
             this.buttonSalas = new System.Windows.Forms.PictureBox();
             this.buttonUsaurios = new System.Windows.Forms.PictureBox();
             this.textBoxSearch = new System.Windows.Forms.TextBox();
-            this.buttonStatistics = new System.Windows.Forms.PictureBox();
             this.dataGridViewSalas = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.createSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.deleteSalas)).BeginInit();
@@ -52,7 +51,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalas)).BeginInit();
             this.SuspendLayout();
             // 
@@ -172,17 +170,7 @@
             this.textBoxSearch.Name = "textBoxSearch";
             this.textBoxSearch.Size = new System.Drawing.Size(377, 31);
             this.textBoxSearch.TabIndex = 34;
-            // 
-            // buttonStatistics
-            // 
-            this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
-            this.buttonStatistics.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_30;
-            this.buttonStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStatistics.Location = new System.Drawing.Point(21, 454);
-            this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
-            this.buttonStatistics.TabIndex = 41;
-            this.buttonStatistics.TabStop = false;
+            this.textBoxSearch.TextChanged += new System.EventHandler(this.textBoxSearch_TextChanged);
             // 
             // dataGridViewSalas
             // 
@@ -219,7 +207,6 @@
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
             this.Controls.Add(this.dataGridViewSalas);
-            this.Controls.Add(this.buttonStatistics);
             this.Controls.Add(this.textBoxSearch);
             this.Controls.Add(this.buttonOff);
             this.Controls.Add(this.pictureBox1);
@@ -246,7 +233,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewSalas)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -264,7 +250,6 @@
         private System.Windows.Forms.PictureBox buttonSalas;
         private System.Windows.Forms.PictureBox buttonUsaurios;
         private System.Windows.Forms.TextBox textBoxSearch;
-        private System.Windows.Forms.PictureBox buttonStatistics;
         private System.Windows.Forms.DataGridView dataGridViewSalas;
     }
 }

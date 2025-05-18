@@ -13,9 +13,11 @@ namespace Cultura_BCN
 {
     public partial class ReservationsDashboard : Form
     {
-        public ReservationsDashboard()
+        private usuarios users;
+        public ReservationsDashboard(usuarios users)
         {
             InitializeComponent();
+            this.users = users;
             using (var context = new CulturaBCNEntities())
             {
                 var listFinal = new List<DTOReservations>();
@@ -30,32 +32,36 @@ namespace Cultura_BCN
                 }
                 dataGridViewUsers.DataSource = listFinal;
             }
+            if (users.id_rol == 1)
+            {
+                deleteReservations.Visible = false;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
+            Dashboard dashboard = new Dashboard(this.users);
             dashboard.Show();
             this.Hide();
         }
 
         private void buttonUsaurios_Click(object sender, EventArgs e)
         {
-            UsersDashboard usersDashboard = new UsersDashboard();
+            UsersDashboard usersDashboard = new UsersDashboard(this.users);
             usersDashboard.Show();
             this.Hide();
         }
 
         private void buttonSalas_Click(object sender, EventArgs e)
         {
-            SalasDashboards dashboards = new SalasDashboards(); 
+            SalasDashboards dashboards = new SalasDashboards(this.users); 
             dashboards.Show();
             this.Hide();
         }
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard eventsDashboard = new EventsDashboard();
+            EventsDashboard eventsDashboard = new EventsDashboard(this.users);
             eventsDashboard.Show();
             this.Hide();
         }
@@ -107,6 +113,31 @@ namespace Cultura_BCN
                 {
                     MessageBox.Show("Has de seleccionar com a minim una reserva per poder eliminar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                 }
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxSearch.Text;
+            using (var context = new CulturaBCNEntities())
+            {
+                var listFinal = new List<DTOReservations>();
+                var list = context.reservas_entradas.ToList();
+                foreach (reservas_entradas reserva in list)
+                {
+                    string nombre = context.usuarios
+                           .Where(u => u.id_usuario == reserva.id_usuario)
+                           .Select(u => u.correo)
+                           .FirstOrDefault();
+
+                    string numero = context.asientos.Where(a => a.id_asiento == reserva.id_asiento).Select(a => a.numero).FirstOrDefault();
+                    if (nombre.StartsWith(text))
+                    {
+                        listFinal.Add(new DTOReservations(reserva.id_reserva, nombre, numero, reserva.fecha_reserva));
+                    }
+                    
+                }
+                dataGridViewUsers.DataSource = listFinal;
+            }
         }
     }
 }

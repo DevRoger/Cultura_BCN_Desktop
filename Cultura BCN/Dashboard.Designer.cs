@@ -43,7 +43,6 @@
             this.pictureBoxTotalClients = new System.Windows.Forms.PictureBox();
             this.labelTotalClients = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
-            this.buttonStatistics = new System.Windows.Forms.PictureBox();
             this.chartReservation = new System.Windows.Forms.DataVisualization.Charting.Chart();
             this.pictureBoxEvent1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxUsuaris1 = new System.Windows.Forms.PictureBox();
@@ -100,6 +99,8 @@
             this.pictureBoxEventFoto1 = new System.Windows.Forms.PictureBox();
             this.pictureBoxEventFoto2 = new System.Windows.Forms.PictureBox();
             this.pictureBoxEventFoto3 = new System.Windows.Forms.PictureBox();
+            this.monthCalendar = new System.Windows.Forms.MonthCalendar();
+            this.labelNotEvents = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.buttonUsaurios)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonSalas)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
@@ -107,7 +108,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTotalClients)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartReservation)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUsuaris1)).BeginInit();
@@ -256,17 +256,6 @@
             this.label1.Text = "Usuaris totals";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.label1.Click += new System.EventHandler(this.label1_Click);
-            // 
-            // buttonStatistics
-            // 
-            this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
-            this.buttonStatistics.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_30;
-            this.buttonStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStatistics.Location = new System.Drawing.Point(22, 455);
-            this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
-            this.buttonStatistics.TabIndex = 7;
-            this.buttonStatistics.TabStop = false;
             // 
             // chartReservation
             // 
@@ -911,6 +900,27 @@
             this.pictureBoxEventFoto3.TabIndex = 75;
             this.pictureBoxEventFoto3.TabStop = false;
             // 
+            // monthCalendar
+            // 
+            this.monthCalendar.Location = new System.Drawing.Point(938, 248);
+            this.monthCalendar.Name = "monthCalendar";
+            this.monthCalendar.TabIndex = 76;
+            this.monthCalendar.TitleBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.monthCalendar.TrailingForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(128)))), ((int)(((byte)(128)))));
+            this.monthCalendar.DateSelected += new System.Windows.Forms.DateRangeEventHandler(this.monthCalendar_DateSelected);
+            // 
+            // labelNotEvents
+            // 
+            this.labelNotEvents.AutoSize = true;
+            this.labelNotEvents.BackColor = System.Drawing.Color.Transparent;
+            this.labelNotEvents.Font = new System.Drawing.Font("Nirmala UI", 21.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelNotEvents.ForeColor = System.Drawing.Color.White;
+            this.labelNotEvents.Location = new System.Drawing.Point(518, 217);
+            this.labelNotEvents.Name = "labelNotEvents";
+            this.labelNotEvents.Size = new System.Drawing.Size(296, 40);
+            this.labelNotEvents.TabIndex = 77;
+            this.labelNotEvents.Text = "No hi ha events avui";
+            // 
             // Dashboard
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -918,6 +928,8 @@
             this.BackgroundImage = global::Cultura_BCN.Properties.Resources.Desktop___Home;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.ClientSize = new System.Drawing.Size(1234, 690);
+            this.Controls.Add(this.labelNotEvents);
+            this.Controls.Add(this.monthCalendar);
             this.Controls.Add(this.pictureBoxEventFoto3);
             this.Controls.Add(this.pictureBoxEventFoto2);
             this.Controls.Add(this.pictureBoxEventFoto1);
@@ -980,7 +992,6 @@
             this.Controls.Add(this.labelDate);
             this.Controls.Add(this.timeClock);
             this.Controls.Add(this.buttonOff);
-            this.Controls.Add(this.buttonStatistics);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonBockings);
             this.Controls.Add(this.buttonEvents);
@@ -1002,7 +1013,6 @@
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxTotalClients)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.chartReservation)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxEvent1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBoxUsuaris1)).EndInit();
@@ -1033,7 +1043,6 @@
         private System.Windows.Forms.PictureBox pictureBoxTotalClients;
         private System.Windows.Forms.Label labelTotalClients;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox buttonStatistics;
         private System.Windows.Forms.DataVisualization.Charting.Chart chartReservation;
         private System.Windows.Forms.PictureBox pictureBoxEvent1;
         private System.Windows.Forms.PictureBox pictureBoxUsuaris1;
@@ -1090,5 +1099,7 @@
         private System.Windows.Forms.PictureBox pictureBoxEventFoto1;
         private System.Windows.Forms.PictureBox pictureBoxEventFoto2;
         private System.Windows.Forms.PictureBox pictureBoxEventFoto3;
+        private System.Windows.Forms.MonthCalendar monthCalendar;
+        private System.Windows.Forms.Label labelNotEvents;
     }
 }

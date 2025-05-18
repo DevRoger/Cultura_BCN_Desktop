@@ -15,7 +15,7 @@ namespace Cultura_BCN
 {
     public class APICalls
     {
-        private static string APIurl = "http://10.0.3.141/CulturaBCN/api/";
+        private static string APIurl = "http://192.168.0.15/CulturaBCN/api/";
 
 
         public static async Task POSTuser(usuarios user, Image imagen)
@@ -191,8 +191,17 @@ namespace Cultura_BCN
                     using (var ms = new MemoryStream(bytes))
                     {
                         Image img = Image.FromStream(ms);
-                        box.Image = img;
-                        box.SizeMode = PictureBoxSizeMode.StretchImage;
+                        if (box.InvokeRequired)
+                        {
+                            box.Invoke(new Action(() => box.Image = img));
+                            box.Invoke(new Action(() => box.SizeMode = PictureBoxSizeMode.StretchImage));
+
+                        }
+                        else
+                        {
+                            box.Image = img;
+                            box.SizeMode = PictureBoxSizeMode.StretchImage;
+                        }
                     }
                 }
                 else

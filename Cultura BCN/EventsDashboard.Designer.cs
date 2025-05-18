@@ -32,7 +32,6 @@
             System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(EventsDashboard));
             this.buttonOff = new System.Windows.Forms.PictureBox();
-            this.buttonStatistics = new System.Windows.Forms.PictureBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.buttonBockings = new System.Windows.Forms.PictureBox();
             this.buttonEvents = new System.Windows.Forms.PictureBox();
@@ -44,7 +43,6 @@
             this.createEvents = new System.Windows.Forms.PictureBox();
             this.dataGridViewEvents = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).BeginInit();
@@ -67,17 +65,6 @@
             this.buttonOff.TabIndex = 16;
             this.buttonOff.TabStop = false;
             this.buttonOff.Click += new System.EventHandler(this.buttonOff_Click);
-            // 
-            // buttonStatistics
-            // 
-            this.buttonStatistics.BackColor = System.Drawing.Color.Transparent;
-            this.buttonStatistics.BackgroundImage = global::Cultura_BCN.Properties.Resources.image_30;
-            this.buttonStatistics.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
-            this.buttonStatistics.Location = new System.Drawing.Point(22, 455);
-            this.buttonStatistics.Name = "buttonStatistics";
-            this.buttonStatistics.Size = new System.Drawing.Size(51, 47);
-            this.buttonStatistics.TabIndex = 15;
-            this.buttonStatistics.TabStop = false;
             // 
             // pictureBox1
             // 
@@ -225,7 +212,6 @@
             this.Controls.Add(this.editEvents);
             this.Controls.Add(this.textBoxEmail);
             this.Controls.Add(this.buttonOff);
-            this.Controls.Add(this.buttonStatistics);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.buttonBockings);
             this.Controls.Add(this.buttonEvents);
@@ -239,7 +225,6 @@
             this.Text = "Events";
             this.Load += new System.EventHandler(this.EventsDashboard_Load);
             ((System.ComponentModel.ISupportInitialize)(this.buttonOff)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.buttonStatistics)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonBockings)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.buttonEvents)).EndInit();
@@ -257,7 +242,6 @@
         #endregion
 
         private System.Windows.Forms.PictureBox buttonOff;
-        private System.Windows.Forms.PictureBox buttonStatistics;
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox buttonBockings;
         private System.Windows.Forms.PictureBox buttonEvents;

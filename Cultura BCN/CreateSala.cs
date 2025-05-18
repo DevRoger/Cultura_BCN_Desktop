@@ -17,11 +17,13 @@ namespace Cultura_BCN
     public partial class CreateSala : Form
     {
         private salas sala;
-        public CreateSala()
+        private usuarios user;
+        public CreateSala(usuarios usuarios)
         {
             InitializeComponent();
+            this.user = usuarios;
         }
-        public CreateSala(salas sala)
+        public CreateSala(salas sala,usuarios user)
         {
             InitializeComponent();
             this.sala = sala;
@@ -29,39 +31,40 @@ namespace Cultura_BCN
             textBoxTotalPeople.Text = sala.aforo.ToString();
             textBoxName.Text = sala.nombre;
             buttonCreate.Text = "Actualitzar";
+            this.user = user;
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
+            Dashboard dashboard = new Dashboard(this.user);
             dashboard.Show();
             this.Hide();
         }
 
         private void buttonUsaurios_Click(object sender, EventArgs e)
         {
-            UsersDashboard usersDashboard = new UsersDashboard();
+            UsersDashboard usersDashboard = new UsersDashboard(this.user);
             usersDashboard.Show();
             this.Hide();
         }
 
         private void buttonSalas_Click(object sender, EventArgs e)
         {
-            SalasDashboards dashboards = new SalasDashboards();
+            SalasDashboards dashboards = new SalasDashboards(this.user);
             dashboards.Show();
             this.Hide();
         }
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard eventsDashboard = new EventsDashboard();
+            EventsDashboard eventsDashboard = new EventsDashboard(this.user);
             eventsDashboard.Show();
             this.Hide();
         }
 
         private void buttonBockings_Click(object sender, EventArgs e)
         {
-            ReservationsDashboard reservationsDashboard = new ReservationsDashboard();
+            ReservationsDashboard reservationsDashboard = new ReservationsDashboard(this.user);
             reservationsDashboard.Show();
             this.Hide();
         }
@@ -90,7 +93,7 @@ namespace Cultura_BCN
                 textBoxAddress.Clear();
                 textBoxName.Clear();
                 textBoxTotalPeople.Clear();
-                SalasDashboards salasDashboards = new SalasDashboards();
+                SalasDashboards salasDashboards = new SalasDashboards(this.user);
                 salasDashboards.Show();
                 this.Hide();
             }
@@ -106,7 +109,7 @@ namespace Cultura_BCN
                     context.SaveChangesAsync();
                 }
                 MessageBox.Show("La sala ha sigut actualitzada de forma exitosa.", "Éxit", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                SalasDashboards salasDashboards = new SalasDashboards();
+                SalasDashboards salasDashboards = new SalasDashboards(this.user);
                 salasDashboards.Show();
                 this.Hide();
             }

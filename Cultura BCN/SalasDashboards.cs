@@ -13,7 +13,8 @@ namespace Cultura_BCN
 {
     public partial class SalasDashboards : Form
     {
-        public SalasDashboards()
+        private usuarios users;
+        public SalasDashboards(usuarios users)
         {
             InitializeComponent();
             using (var context = new CulturaBCNEntities())
@@ -21,11 +22,17 @@ namespace Cultura_BCN
                 var list = context.salas.ToList();
                 dataGridViewSalas.DataSource = list;
             }
+
+            this.users = users;
+            if (users.id_rol == 1)
+            {
+                deleteSalas.Visible = false;
+            }
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            Dashboard dashboard = new Dashboard();
+            Dashboard dashboard = new Dashboard(this.users);
             dashboard.Show();
             this.Hide();
             
@@ -33,7 +40,7 @@ namespace Cultura_BCN
 
         private void buttonEvents_Click(object sender, EventArgs e)
         {
-            EventsDashboard f = new EventsDashboard();
+            EventsDashboard f = new EventsDashboard(this.users);
             f.Show();
             this.Hide();
         }
@@ -45,21 +52,21 @@ namespace Cultura_BCN
 
         private void buttonUsaurios_Click(object sender, EventArgs e)
         {
-            UsersDashboard f = new UsersDashboard();
+            UsersDashboard f = new UsersDashboard(this.users);
             f.Show();
             this.Hide();
         }
 
         private void buttonSalas_Click(object sender, EventArgs e)
         {
-            SalasDashboards f = new SalasDashboards();
+            SalasDashboards f = new SalasDashboards(this.users);
             f.Show();
             this.Hide();
         }
 
         private void buttonBockings_Click(object sender, EventArgs e)
         {
-            ReservationsDashboard f = new ReservationsDashboard();
+            ReservationsDashboard f = new ReservationsDashboard(this.users);
             f.Show();
             this.Hide();
         }
@@ -76,7 +83,7 @@ namespace Cultura_BCN
 
         private void createSalas_Click(object sender, EventArgs e)
         {
-            CreateSala createSala = new CreateSala();
+            CreateSala createSala = new CreateSala(this.users);
             createSala.Show();
             this.Hide();
         }
@@ -102,7 +109,7 @@ namespace Cultura_BCN
             }
             else
             {
-                CreateSala editEvent = new CreateSala(salasSeleccionados[0]);
+                CreateSala editEvent = new CreateSala(salasSeleccionados[0],this.users);
                 editEvent.Show();
                 this.Hide();
             }
@@ -157,6 +164,17 @@ namespace Cultura_BCN
                     MessageBox.Show("No pots seleccionar més de un event per editar.", "Atenció", MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
             }
             
+        }
+
+        private void textBoxSearch_TextChanged(object sender, EventArgs e)
+        {
+            string text = textBoxSearch.Text;
+            List<salas> list = new List<salas>();
+            using (var context = new CulturaBCNEntities())
+            {
+                list = context.salas.Where(s => s.nombre.StartsWith(text)).ToList();
+            }
+            dataGridViewSalas.DataSource = list;
         }
     }
 }
